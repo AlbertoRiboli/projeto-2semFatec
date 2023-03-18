@@ -1,0 +1,27 @@
+##########################
+Instruçoes Basicas para Reelembrar
+
+Criar pasta no pc a qual ira usar o git
+Instalar o git
+Configurar suas credenciais
+
+#Clicar com botao direito dentro da pasta que ira usar o projeto: Git Bash Here;
+#Se o nome da main tiver "master", trocar para main:
+(git branch -M "main") -> O -M nesse caso e maiusculo mesmo;
+#Clonar o repositorio do git do Alberto;
+(git clone linkdogitdoalberto)
+#Por seguranca para o projeto, crie uma branch para voce trabalhar, quando
+acabar a etapa que esta fazendo ai sim suba para a main:
+(git checkout -b "nomedasuabranch") -> o -b ja cria e alterna para a nova branch, caso queira apenas alternar entre branchs ai usa apenas o git checkout e o nome da branch;
+#Para commitar:
+(git status) -> Verifica o estado do repositorio
+(git add .) -> Adiciona os arquivos com diferenca
+(git commit -m "titulo do commit")
+(git push) -> sobe os arquivos pro repositorio no github Obs: Talvez o primeiro push tenha que usar: git push -u origin main
+#Ao finalizar a etapa na qual esta trabalhando e queria subir para a branch main apos commitar e subir os arquivos:
+(git checkout main) -> Alterna para a main principal
+(git merge "nomedabranchqueestavatrabalhando") ->mescla os arquivos
+(git push) -> sobe os arquivos
+
+Se nao me engano e isso ai, fiz rapidinho e funcionou
+
