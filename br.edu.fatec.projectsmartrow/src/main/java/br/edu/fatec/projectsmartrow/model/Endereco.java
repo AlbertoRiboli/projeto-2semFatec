@@ -14,12 +14,6 @@ public class Endereco {
 	private String pais;
 	
 	public Endereco () {}
-	
-	
-	
-	
-	
-	
 
 public Endereco(String cep, String logradouro, String numero, String complemento, String referencia, String bairro,
 			String localidade, String uf, String pais) {
@@ -35,18 +29,13 @@ public Endereco(String cep, String logradouro, String numero, String complemento
 		this.pais = pais;
 	}
 
-
 	public Integer getId() {
 		return id;
 	}
 
-
-
 	public void setId(Integer id) {
 		this.id = id;
 	}
-
-
 
 	public String getCep() {
 		return cep;
