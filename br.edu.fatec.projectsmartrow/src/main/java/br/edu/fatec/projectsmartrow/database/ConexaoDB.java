@@ -34,7 +34,7 @@ public class ConexaoDB {
 				Properties props = loadProperties();
 				String url = props.getProperty("dburl");
 				conn = DriverManager.getConnection(url);
-				System.out.println("Banco de Dados Conectado");
+				System.out.println("Log Teste: Banco de Dados Conectado");
 			} catch (SQLException e) {
 				throw new ExcessaoConexaoDB(e.getMessage() + " | Erro ao acessar Banco de Dados");
 			}
