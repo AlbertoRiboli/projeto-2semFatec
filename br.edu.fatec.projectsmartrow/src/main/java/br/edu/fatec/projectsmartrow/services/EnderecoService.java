@@ -30,7 +30,7 @@ public class EnderecoService {
 		endereco.exibirEndereco();
 		System.out.println("#############################");
 		
-		sc1.close();
+//		sc1.close();
 		dao.insertEndereco(endereco);
 		return endereco;
 		

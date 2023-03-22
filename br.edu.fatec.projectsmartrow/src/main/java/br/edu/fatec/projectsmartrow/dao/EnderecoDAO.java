@@ -57,6 +57,7 @@ public class EnderecoDAO {
 				if(rss.next()) {
 					int id = rss.getInt(1);
 					endereco.setId(id);
+					ConexaoDB.closeResultSet(rss);
 				}
 				else {
 					throw new ExcessaoSQL("Erro ao recuperar Id em Banco de Dados");
@@ -68,6 +69,13 @@ public class EnderecoDAO {
 		}
 		catch (SQLException e) {
 			throw new ExcessaoConexaoDB("Erro ao manupular Banco de Dados: " + e.getMessage());
+		}
+		finally {
+//			ConexaoDB.closeConnection();
+//			ConexaoDB.closeResultSet(rs);
+//			ConexaoDB.closeStatement(ps);
+//			ConexaoDB.closeStatement(ps1);
+			
 		}
 		
 	}
