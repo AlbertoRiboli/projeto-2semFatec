@@ -146,11 +146,12 @@ public class Pratos {
 
 			System.out.print("\n Deseja cadastrar outro prato? 1-SIM / 2-NAO: ");
 			opc = sc.nextInt();
-			sc.nextLine();
 		}
 		System.out.println("\n\n\n-------------------------");
 		System.out.println("CADASTRO DE PRATOS CONCLUIDO");
 		System.out.println("-------------------------\n\n\n");
+		sc.nextLine();
+		
 		return pratosList;
 	}
 

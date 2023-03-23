@@ -56,16 +56,20 @@ public class Cardapio {
 		Pratos pt = new Pratos();
 		Bebidas bd = new Bebidas();
 		List<Pratos> pratos = pt.adicionarPrato();
+
 		System.out.println("\n\n--------------------------------");
-		System.out.print("Deseja Cadastrar bebidas? 1-SIM | 2=NAO: ");
-		System.out.println("--------------------------------\n\n");
+		System.out.println("Deseja Cadastrar bebidas? 1-SIM | 2=NAO: ");
+		System.out.println("--------------------------------");
 		int opc = 0;
+
 		while (opc != 2) {
 			opc = sc.nextInt();
 			if (opc == 1) {
 				List<Bebidas> bebidas = bd.adicionarBebida();
+				opc = 2;
 			} else if (opc == 2) {
 				System.out.println("Ok! Voce podera adicionar seu cardapio \nposteriormente nas opcoes do aplicativo");
+				opc = 2;
 			} else {
 				System.out.print("Opção Inválida! Digite novamente: ");
 			}
@@ -81,12 +85,18 @@ public class Cardapio {
 		} else {
 			Pratos metodopratos = new Pratos();
 			Bebidas metodobebidas = new Bebidas();
-			metodopratos.imprimirPratos(pratos);
-			metodobebidas.imprimirBebidas(bebidas);
+			if (pratos != null) {
+				metodopratos.imprimirPratos(pratos);
+			} else {
+				System.out.println("Lista de Pratos está Vazia!");
+			}
+			if (bebidas != null) {
+				metodobebidas.imprimirBebidas(bebidas);
+			} else {
+				System.out.println("Lista de Bebidas está vazia!");
+			}
 		}
 
 	}
-
-
 
 }

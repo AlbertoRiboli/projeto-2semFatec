@@ -114,7 +114,6 @@ public class Bebidas {
 
 			System.out.print("\n Deseja cadastrar outra bebida? 1-SIM / 2-NAO: ");
 			opc = sc.nextInt();
-			sc.nextLine();
 		}
 		System.out.println("\n\n\n-------------------------");
 		System.out.println("CADASTRO DE BEBIDAS CONCLUIDO");

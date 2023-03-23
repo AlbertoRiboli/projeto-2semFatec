@@ -66,8 +66,10 @@ public class ProgramTest {
 		
 		Estabelecimento e1 = new Estabelecimento();
 		EstabelecimentoDAO edao = new EstabelecimentoDAO();
-		e1 = edao.buscarEstabelecimentoPorId(24);
-		edao.listarTodosEstabelecimentos();
+		e1 = edao.buscarEstabelecimentoPorCnpj("12345");
+	
+		e1.getCardapio().adicionarCardapio();
+		
 		
 	}}
 

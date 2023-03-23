@@ -106,5 +106,45 @@ public class EnderecoDAO {
 		
 	}
 	
+	public void atualizarEndereco(Endereco endereco) {
+		Connection conn = ConexaoDB.getConnection();
+		PreparedStatement ps1 = null;
+		
+		try {
+			ps1 = conn.prepareStatement(
+					 "UPDATE ENDERECO SET "
+					+ "CEP=?, LOGRADOURO=?, NUMERO=?, COMPLEMENTO=?, REFERENCIA=?, BAIRRO=?, LOCALIDADE=?, UF=?, PAIS=? "
+					+ "WHERE IDENDERECO = ?");
+			
+			ps1.setString(1, endereco.getCep());
+			ps1.setString(2, endereco.getLogradouro());
+			ps1.setString(3, endereco.getNumero());
+			ps1.setString(4, endereco.getComplemento());
+			ps1.setString(5, endereco.getReferencia());
+			ps1.setString(6, endereco.getBairro());
+			ps1.setString(7, endereco.getLocalidade());
+			ps1.setString(8, endereco.getUf());
+			ps1.setString(9, endereco.getPais());
+			ps1.setInt(10, endereco.getId());
+			
+//			ps1.executeUpdate();
+			int registroModificados = ps1.executeUpdate();
+			
+			System.out.println("Registros modificados: " + registroModificados);
+			
+		}
+		catch (SQLException e) {
+			throw new ExcessaoConexaoDB("Erro ao manupular Banco de Dados: " + e.getMessage());
+		}
+		finally {
+//			ConexaoDB.closeConnection();
+//			ConexaoDB.closeResultSet(rs);
+//			ConexaoDB.closeStatement(ps);
+//			ConexaoDB.closeStatement(ps1);
+			
+		}
+		
+	}
+	
 	
 }

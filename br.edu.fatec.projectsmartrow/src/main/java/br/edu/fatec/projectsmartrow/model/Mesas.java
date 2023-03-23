@@ -53,10 +53,6 @@ public class Mesas {
 		return "Mesas : Numero da mesa: " + numMesa + ", Capacidade de Pessoas: " + capacidadePessoas + "]";
 	}
 
-	public void exibirMesas(List<Mesas> mesas) {
-		mesas.forEach(System.out::println);
-	}
-
 	public List<Mesas> adicionarMesas(List<Mesas> list) {
 		Scanner sc = new Scanner(System.in);
 		int opc = 0;

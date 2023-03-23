@@ -7,12 +7,15 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Scanner;
 
 import br.edu.fatec.projectsmartrow.database.ConexaoDB;
 import br.edu.fatec.projectsmartrow.exceptions.ExcessaoConexaoDB;
 import br.edu.fatec.projectsmartrow.exceptions.ExcessaoSQL;
+import br.edu.fatec.projectsmartrow.model.Endereco;
 import br.edu.fatec.projectsmartrow.model.Estabelecimento;
 import br.edu.fatec.projectsmartrow.model.Mesas;
+import br.edu.fatec.projectsmartrow.resources.EnderecoResource;
 
 public class EstabelecimentoDAO {
 
@@ -138,13 +141,64 @@ public class EstabelecimentoDAO {
 				Connection conn = ConexaoDB.getConnection();
 				PreparedStatement ps = null;
 				Estabelecimento estabelecimento = new Estabelecimento();
-				ps = conn.prepareStatement("SELECT * FROM ESTABELECIMENTO WHERE ID = ?");
+				ps = conn.prepareStatement("SELECT * FROM ESTABELECIMENTO WHERE CNPJ = ?");
 				ps.setString(1, cnpj);
 				ResultSet rs = ps.executeQuery();
 				estabelecimento = converterEmEstabelecimento(rs);
 				return estabelecimento;
 			} catch (SQLException e) {
 				throw new ExcessaoSQL("Erro na buscar Estabelecimento por Id!" + e.getMessage());
+			}
+		}
+		
+		public void atualizarEstabelecimento(Estabelecimento estabelecimento) {
+			CardapioDAO cdao = new CardapioDAO();
+			Connection conn = ConexaoDB.getConnection();
+			PreparedStatement ps = null;
+			PreparedStatement ps1 = null;
+			ResultSet rs = null;
+			MesasDAO mdao = new MesasDAO();
+			Scanner sc = new Scanner(System.in);
+
+			try {
+				
+				EnderecoResource er = new EnderecoResource();
+				Endereco endereco = new Endereco();
+				
+				
+				
+				ps1 = conn.prepareStatement(
+						"UPDATE ESTABELECIMENTO "
+								+ "SET NOME=?, CNPJ=?, TELEFONE=?, TELEFONE2=?, EMAIL=?, HORARIOFUNCIONAMENTO=?, ABERTO=?, "
+								+ "IMAGEMESTABELECIMENTO=?, ENDERECO=? WHERE ID = ?");
+
+				ps1.setString(1, estabelecimento.getNome());
+				ps1.setString(2, estabelecimento.getCnpj());
+				ps1.setString(3, estabelecimento.getTelefone());
+				ps1.setString(4, estabelecimento.getTelefone2());
+				ps1.setString(5, estabelecimento.getEmail());
+				ps1.setString(6, estabelecimento.getHorarioFuncionamento());
+				ps1.setInt(7, estabelecimento.getAberto());
+				ps1.setString(8, estabelecimento.getImagemEstabelecimento());
+				System.out.print("Digite o CEP: ");
+				String cep = sc.nextLine();
+				endereco = er.CadastrarEnderecoAPI(cep);
+				
+				ps1.setInt(9, estabelecimento.getEndereco().getId());
+				ps1.setInt(10, estabelecimento.getIDEstabelecimento());
+
+				int registroModificados = ps1.executeUpdate();
+				
+				System.out.println("Registros modificados: " + registroModificados);
+				
+				if (estabelecimento.getCardapio() != null) {
+					cdao.insertCardapio(estabelecimento.getCardapio(), estabelecimento);
+				}
+				if (estabelecimento.getMesas() != null) {
+					mdao.insertMesas(estabelecimento);
+				}
+			} catch (SQLException e) {
+				throw new ExcessaoConexaoDB("Erro ao manupular Banco de Dados: " + e.getMessage());
 			}
 		}
 
