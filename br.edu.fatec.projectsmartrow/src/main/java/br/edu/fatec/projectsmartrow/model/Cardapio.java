@@ -1,7 +1,15 @@
 package br.edu.fatec.projectsmartrow.model;
 
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
+
+import br.edu.fatec.projectsmartrow.database.ConexaoDB;
+import br.edu.fatec.projectsmartrow.exceptions.ExcessaoSQL;
 
 public class Cardapio {
 
@@ -24,6 +32,22 @@ public class Cardapio {
 
 	public void setIDCardapio(Integer iDCardapio) {
 		this.IDCardapio = iDCardapio;
+	}
+
+	public List<Bebidas> getBebidas() {
+		return bebidas;
+	}
+
+	public void setBebidas(List<Bebidas> bebidas) {
+		this.bebidas = bebidas;
+	}
+
+	public void setPratos(List<Pratos> pratos) {
+		this.pratos = pratos;
+	}
+
+	public List<Pratos> getPratos() {
+		return pratos;
 	}
 
 	public Cardapio adicionarCardapio() {
@@ -60,14 +84,9 @@ public class Cardapio {
 			metodopratos.imprimirPratos(pratos);
 			metodobebidas.imprimirBebidas(bebidas);
 		}
-		
+
 	}
-	
-	public List<Bebidas> getBebidas() {
-		return bebidas;
-	}
-	
-	public List<Pratos> getPratos() {
-		return pratos;
-	}
+
+
+
 }

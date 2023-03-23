@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
+import br.edu.fatec.projectsmartrow.application.PrincipalEstabelecimento;
 import br.edu.fatec.projectsmartrow.dao.EstabelecimentoDAO;
 import br.edu.fatec.projectsmartrow.dao.MesasDAO;
 import br.edu.fatec.projectsmartrow.model.Bebidas;
@@ -46,10 +47,8 @@ public class EstabelecimentoService {
 						System.out.print("Opção Inválida! Digite novamente: ");
 					}
 				}
-//				List<Bebidas> bebidas = bd.adicionarBebida();
 				Cardapio cd = new Cardapio(null, pratos, bebidas);
 				estabelecimento.setCardapio(cd);
-				cd.imprimirCardapio();
 				cond = false;
 			} else if (opc == 2) {
 				System.out.println("\n\n##########################");
@@ -74,8 +73,6 @@ public class EstabelecimentoService {
 				List<Mesas> listMesas = new ArrayList<>();
 				listMesas = mesas.adicionarMesas(listMesas);
 				estabelecimento.setMesas(listMesas);
-				
-				mesas.imprimirMesas(listMesas);
 				cond = false;
 			} else if (opc == 2) {
 				System.out.println("\n\n##########################");
@@ -88,6 +85,15 @@ public class EstabelecimentoService {
 		}
 		System.out.println("##########################\n\n");
 		dao.insertEstabelecimento(estabelecimento);
+		
+		System.out.println("\n\n--------------------------------");
+		System.out.println("ESTABELECIMENTO ADICIONADO COM SUCESSO");
+		System.out.println("\n\n--------------------------------");
+		System.out.print("Deseja selecionado como usuário do sistema agora? 1-SIM | 2-NAO");
+		int opc2 = sc.nextInt();
+		if (opc2 == 1) {
+			PrincipalEstabelecimento.setUsuarioEstabelecimento(estabelecimento);
+		}
 		
 	}
 

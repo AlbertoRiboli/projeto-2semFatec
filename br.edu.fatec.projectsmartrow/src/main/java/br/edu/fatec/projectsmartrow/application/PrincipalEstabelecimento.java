@@ -10,29 +10,35 @@ public class PrincipalEstabelecimento {
 	EstabelecimentoTeste et = new EstabelecimentoTeste();
 	Scanner sc = new Scanner(System.in);
 	
-	public void menuEstabelecimento() {
+	public void imprimirmenuEstabelecimento() {
 		estabelecimento = et.estabelecimentoteste();
 		System.out.println("---------------------------------------------------------------");
 		System.out.println("|                                                             |");
 		System.out.println("|                    SMART ROW VERSAO 1.0                     |");
 		System.out.println("|                                                             |");
 		System.out.println("---------------------------------------------------------------");
-		System.out.println("| USUARIO: " + estabelecimento + "--------------------------- |");
+		System.out.println("|" + estabelecimento.estabelecimentoCabecalho());
 		System.out.println("---------------------------------------------------------------");
-		System.out.println("|                  DIGITE A OPCAO DESEJADA                    |");
+		System.out.println("|                  ESCOLHA A OPCAO DESEJADA                   |");
 		System.out.println("---------------------------------------------------------------");
 		System.out.println("| 1 - CADASTRAR NOVO ESTABELECIMENTO                          |");
 		System.out.println("| 2 - BUSCAR ESTABELECIMENTO POR CNPJ                         |");
 		System.out.println("| 3 - ALTERAR CADASTRO DE ESTABELECIMENTO                     |");
-		System.out.println("| 3 - ADICIONAR CARDAPIO                                      |");
-		System.out.println("| 4 - ADICIONAR MESA                                          |");
-		System.out.println("| 5 - CONSULTAR FATURAMENTO                                   |");
+		System.out.println("| 4 - IMPRIMIR TODOS OS ESTABELECIMENTOS                      |");
+		System.out.println("| 5 - ADICIONAR CARDAPIO                                      |");
+		System.out.println("| 6 - CONSULTAR CARDAPIO                                      |");
+		System.out.println("| 7 - ADICIONAR MESA                                          |");
+		System.out.println("| 8 - CONSULTAR FATURAMENTO EM DESENVOLVIMENTO                |");
 		
 		
-		System.out.println("| 0 - SAIR                                                            |");		
+		System.out.println("| 0 - SAIR                                                    |");		
+		System.out.print(" DIGITE A OPCAO: ");
 		
 		
-		
+	}
+	
+	public static void setUsuarioEstabelecimento(Estabelecimento estabelecimento) {
+		PrincipalEstabelecimento.estabelecimento = estabelecimento;
 	}
 	
 

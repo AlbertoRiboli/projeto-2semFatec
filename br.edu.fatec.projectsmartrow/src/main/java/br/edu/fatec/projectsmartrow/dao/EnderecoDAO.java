@@ -5,36 +5,22 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.ArrayList;
+import java.util.List;
 
 import br.edu.fatec.projectsmartrow.database.ConexaoDB;
 import br.edu.fatec.projectsmartrow.exceptions.ExcessaoConexaoDB;
 import br.edu.fatec.projectsmartrow.exceptions.ExcessaoSQL;
 import br.edu.fatec.projectsmartrow.model.Endereco;
+import br.edu.fatec.projectsmartrow.model.Mesas;
 
 public class EnderecoDAO {
 
 	public void insertEndereco(Endereco endereco) {
 		Connection conn = ConexaoDB.getConnection();
-		PreparedStatement ps = null;
 		PreparedStatement ps1 = null;
-		ResultSet rs = null;
 		
 		try {
-			ps = conn.prepareStatement(
-					"CREATE TABLE IF NOT EXISTS ENDERECO "
-					+ "(ID INTEGER PRIMARY KEY AUTOINCREMENT, "
-					+ "CEP VARCHAR(10), "
-					+ "LOGRADOURO VARCHAR(100),"
-					+ "NUMERO VARCHAR(10),"
-					+ "COMPLEMENTO VARCHAR(100),"
-					+ "REFERENCIA VARCHAR(100),"
-					+ "BAIRRO VARCHAR(100),"
-					+ "LOCALIDADE VARCHAR(20),"
-					+ "UF VARCHAR(2),"
-					+ "PAIS VARCHAR(100)); ");
-			ps.executeUpdate();
-					
-					
 			ps1 = conn.prepareStatement(
 					 "INSERT INTO ENDERECO "
 					+ "(CEP, LOGRADOURO, NUMERO, COMPLEMENTO, REFERENCIA, BAIRRO, LOCALIDADE, UF, PAIS) "
@@ -79,4 +65,46 @@ public class EnderecoDAO {
 		}
 		
 	}
+	
+	public Endereco buscarEnderecoPorEstabelecimentoId(int id) {
+		try {
+			Connection conn = ConexaoDB.getConnection();
+			PreparedStatement ps = null;
+			Endereco endereco = new Endereco();
+			ps = conn.prepareStatement("SELECT ENDERECO.* "
+					+ "FROM ENDERECO INNER JOIN ESTABELECIMENTO "
+					+ "ON ENDERECO.IDENDERECO = ESTABELECIMENTO.ENDERECO "
+					+ "WHERE ESTABELECIMENTO.ENDERECO = ?");
+			ps.setInt(1, id);
+			ResultSet rs = ps.executeQuery();
+			endereco = converterEmEndereco(rs);
+			return endereco;
+		} catch (SQLException e) {
+			throw new ExcessaoSQL("Erro na buscar de mesas por Id!" + e.getMessage());
+		}
+	}
+
+	public Endereco converterEmEndereco(ResultSet rs) {
+		try {
+		Endereco endereco = new Endereco();
+		while (rs.next()) {
+			endereco.setCep(rs.getString("CEP"));
+			endereco.setLogradouro(rs.getString("LOGRADOURO"));
+			endereco.setNumero(rs.getString("NUMERO"));
+			endereco.setComplemento(rs.getString("COMPLEMENTO"));
+			endereco.setReferencia(rs.getString("REFERENCIA"));
+			endereco.setBairro(rs.getString("BAIRRO"));
+			endereco.setLocalidade(rs.getString("LOCALIDADE"));
+			endereco.setUf(rs.getString("UF"));
+			endereco.setPais(rs.getString("PAIS"));
+		}
+		return endereco;
+		}
+		catch (SQLException e) {
+			throw new ExcessaoSQL("Erro ao receber receber endereco via ResultSet " + e.getMessage());
+		}
+		
+	}
+	
+	
 }

@@ -5,11 +5,14 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.ArrayList;
+import java.util.List;
 
 import br.edu.fatec.projectsmartrow.database.ConexaoDB;
 import br.edu.fatec.projectsmartrow.exceptions.ExcessaoConexaoDB;
 import br.edu.fatec.projectsmartrow.exceptions.ExcessaoSQL;
 import br.edu.fatec.projectsmartrow.model.Estabelecimento;
+import br.edu.fatec.projectsmartrow.model.Mesas;
 
 public class EstabelecimentoDAO {
 
@@ -22,9 +25,10 @@ public class EstabelecimentoDAO {
 		MesasDAO mdao = new MesasDAO();
 
 		try {
-			ps1 = conn.prepareStatement("INSERT INTO ESTABELECIMENTO "
-					+ "(NOME, CNPJ, TELEFONE, TELEFONE2, EMAIL, HORARIOFUNCIONAMENTO, ABERTO, "
-					+ "IMAGEMESTABELECIMENTO, ENDERECO) " + "VALUES (?,?,?,?,?,?,?,?,?)",
+			ps1 = conn.prepareStatement(
+					"INSERT INTO ESTABELECIMENTO "
+							+ "(NOME, CNPJ, TELEFONE, TELEFONE2, EMAIL, HORARIOFUNCIONAMENTO, ABERTO, "
+							+ "IMAGEMESTABELECIMENTO, ENDERECO) " + "VALUES (?,?,?,?,?,?,?,?,?)",
 					Statement.RETURN_GENERATED_KEYS);
 
 			ps1.setString(1, estabelecimento.getNome());
@@ -36,7 +40,7 @@ public class EstabelecimentoDAO {
 			ps1.setInt(7, estabelecimento.getAberto());
 			ps1.setString(8, estabelecimento.getImagemEstabelecimento());
 			ps1.setInt(9, estabelecimento.getEndereco().getId());
-			
+
 			int registroModificados = ps1.executeUpdate();
 			if (registroModificados > 0) {
 				ResultSet rss = ps1.getGeneratedKeys();
@@ -64,6 +68,84 @@ public class EstabelecimentoDAO {
 //			ConexaoDB.closeStatement(ps1);
 		}
 	}
-	
+
+	public Estabelecimento converterEmEstabelecimento(ResultSet rs) throws SQLException {
+		Estabelecimento est = new Estabelecimento();
+		CardapioDAO c = new CardapioDAO();
+		est.setIDEstabelecimento(rs.getInt("ID"));
+		est.setNome(rs.getString("NOME"));
+		est.setCnpj(rs.getString("CNPJ"));
+		est.setTelefone(rs.getString("TELEFONE"));
+		est.setTelefone2(rs.getString("TELEFONE2"));
+		est.setEmail(rs.getString("EMAIL"));
+		est.setHorarioFuncionamento(rs.getString("HORARIOFUNCIONAMENTO"));
+		est.setAberto(rs.getInt("ABERTO"));
+		est.setImagemEstabelecimento(rs.getString("IMAGEMESTABELECIMENTO"));
+//			est.setFaturamento(faturamento); Aguardar a implementação do método para instansiar Faturamento do Banco de Dados
+		est.setCardapio(c.buscarCardapioPorIdEstabelecimento(rs.getInt("ID")));
+		EnderecoDAO edao = new EnderecoDAO();
+		est.setEndereco(edao.buscarEnderecoPorEstabelecimentoId(rs.getInt("ID")));
+//			est.setAvaliacao(getAvaliacao());
+		List<Mesas> listmesas = new ArrayList();
+		MesasDAO mdao = new MesasDAO();
+		est.setMesas(mdao.buscarMesaPorEstabelecimento(rs.getInt("ID")));
+//			est.setCategoriaEstabelecimento(categoriaEstabelecimento);
+
+		return est;
+
+	}
+
+	public Estabelecimento buscarEstabelecimentoPorId(int id) {
+		try {
+			Connection conn = ConexaoDB.getConnection();
+			PreparedStatement ps = null;
+			Estabelecimento estabelecimento = new Estabelecimento();
+			ps = conn.prepareStatement("SELECT * FROM ESTABELECIMENTO WHERE ID = ?");
+			ps.setInt(1, id);
+			ResultSet rs = ps.executeQuery();
+			estabelecimento = converterEmEstabelecimento(rs);
+			return estabelecimento;
+		} catch (SQLException e) {
+			throw new ExcessaoSQL("Erro na buscar Estabelecimento por Id!" + e.getMessage());
+		}
+	}
+
+		public void listarTodosEstabelecimentos() {
+		try {
+			Connection conn = ConexaoDB.getConnection();
+			PreparedStatement ps = null;
+			List<Estabelecimento> list = new ArrayList();
+			ps = conn.prepareStatement("SELECT * FROM ESTABELECIMENTO");
+			ResultSet rs = ps.executeQuery();
+			
+			while(rs.next()) {
+				Estabelecimento estabelecimento = new Estabelecimento();
+				estabelecimento = converterEmEstabelecimento(rs);
+				list.add(estabelecimento);
+			}
+			
+			for(Estabelecimento obj : list) {
+				obj.imprimirEstabelecimento();
+			}
+			
+		
+		} catch (SQLException e) {
+			throw new ExcessaoSQL("Erro na buscar de mesas por Id!" + e.getMessage());
+		}
+	}
+		public Estabelecimento buscarEstabelecimentoPorCnpj(String cnpj) {
+			try {
+				Connection conn = ConexaoDB.getConnection();
+				PreparedStatement ps = null;
+				Estabelecimento estabelecimento = new Estabelecimento();
+				ps = conn.prepareStatement("SELECT * FROM ESTABELECIMENTO WHERE ID = ?");
+				ps.setString(1, cnpj);
+				ResultSet rs = ps.executeQuery();
+				estabelecimento = converterEmEstabelecimento(rs);
+				return estabelecimento;
+			} catch (SQLException e) {
+				throw new ExcessaoSQL("Erro na buscar Estabelecimento por Id!" + e.getMessage());
+			}
+		}
 
 }

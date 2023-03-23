@@ -5,12 +5,17 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.ArrayList;
+import java.util.List;
 
 import br.edu.fatec.projectsmartrow.database.ConexaoDB;
 import br.edu.fatec.projectsmartrow.exceptions.ExcessaoConexaoDB;
 import br.edu.fatec.projectsmartrow.exceptions.ExcessaoSQL;
+import br.edu.fatec.projectsmartrow.model.Bebidas;
 import br.edu.fatec.projectsmartrow.model.Cardapio;
 import br.edu.fatec.projectsmartrow.model.Estabelecimento;
+import br.edu.fatec.projectsmartrow.model.Mesas;
+import br.edu.fatec.projectsmartrow.model.Pratos;
 
 public class CardapioDAO {
 
@@ -68,9 +73,7 @@ public class CardapioDAO {
 					if (rss.next()) {
 						int id = rss.getInt(1);
 						cardapio.getPratos().get(i).setIDPrato(id);
-					
-						
-						
+
 					}
 				}
 			}
@@ -97,7 +100,7 @@ public class CardapioDAO {
 						if (rss.next()) {
 							int id = rss.getInt(1);
 							cardapio.getBebidas().get(i).setIDBebida(id);
-							
+
 						}
 					}
 				}
@@ -114,4 +117,131 @@ public class CardapioDAO {
 		}
 
 	}
+
+	public List<Pratos> buscarPratosPorCardapio(int id) {
+		try {
+			List<Pratos> listpratos = new ArrayList();
+			PreparedStatement ps = null;
+			Connection conn = ConexaoDB.getConnection();
+			ResultSet rs = null;
+			ps = conn.prepareStatement("SELECT * FROM PRATOS WHERE IDCARDAPIO = ?");
+			ps.setInt(1, id);
+			rs = ps.executeQuery();
+			listpratos = converterEmPratos(rs);
+			return listpratos;
+
+		} catch (SQLException e) {
+			throw new ExcessaoSQL("Erro ao buscar pratos por Id de Estabelecimento: " + e.getLocalizedMessage());
+		}
+
+	}
+
+	public List<Pratos> converterEmPratos(ResultSet rs) {
+		try {
+			List<Pratos> listpratos = new ArrayList();
+			while (rs.next()) {
+				Pratos pratos = new Pratos();
+				pratos.setIDPrato(rs.getInt("IDPRATO"));
+				pratos.setNome(rs.getString("NOME"));
+				pratos.setTipoPrato(rs.getString("TIPOPRATO"));
+				pratos.setIngredientes(rs.getString("INGREDIENTES"));
+				pratos.setValor(rs.getDouble("VALOR"));
+				pratos.setImagem(rs.getString("IMAGEM"));
+//			pratos.setAvaliacao(valor);   //Aguardar a implementação do Sistema de Avaliação de Pratos	
+				listpratos.add(pratos);
+			}
+			return listpratos;
+		} catch (SQLException e) {
+			throw new ExcessaoSQL("Erro ao Converter SQL em Pratos: " + e.getMessage());
+		}
+
+	}
+
+	public Cardapio converterEmCardapio(ResultSet rs) {
+		try {
+			Cardapio cardapio = new Cardapio();
+
+			while (rs.next()) {
+				cardapio.setIDCardapio(rs.getInt("IDCARDAPIO"));
+			}
+			List<Pratos> listpratos = new ArrayList();
+
+			listpratos = buscarPratosPorCardapio(cardapio.getIDCardapio());
+			cardapio.setPratos(listpratos);
+			List<Bebidas> listbebidas = new ArrayList();
+			listbebidas = buscarBebidasPorCardapio(cardapio.getIDCardapio());
+			cardapio.setBebidas(listbebidas);
+
+			return cardapio;
+		} catch (SQLException e) {
+			throw new ExcessaoSQL("Erro ao Recuperar Cardapio do Banco de Dados: " + e.getMessage());
+		}
+	}
+
+	public Cardapio buscarCardapioPorIdEstabelecimento(int id) {
+		try {
+			Cardapio cardapio = new Cardapio();
+			int result = 0;
+			PreparedStatement ps = null;
+			Connection conn = ConexaoDB.getConnection();
+			ResultSet rs = null;
+			ps = conn.prepareStatement("SELECT * FROM CARDAPIO WHERE ID_ESTABELECIMENTO = ?");
+			ps.setInt(1, id);
+			rs = ps.executeQuery();
+			while (rs.next()) {
+				result = rs.getInt("IDCARDAPIO");
+			}
+
+			PreparedStatement ps1 = null;
+			ResultSet rss = null;
+			ps1 = conn.prepareStatement("SELECT * FROM CARDAPIO WHERE IDCARDAPIO = ?");
+			ps1.setInt(1, result);
+			rss = ps1.executeQuery();
+			cardapio = converterEmCardapio(rss);
+
+			return cardapio;
+
+		} catch (SQLException e) {
+			throw new ExcessaoSQL("Erro ao Converter Id Estabelecimento em Cardapio: " + e.getLocalizedMessage());
+		}
+
+	}
+
+	public List<Bebidas> buscarBebidasPorCardapio(int id) {
+		try {
+			List<Bebidas> listbebidas = new ArrayList();
+			PreparedStatement ps = null;
+			Connection conn = ConexaoDB.getConnection();
+			ResultSet rs = null;
+			ps = conn.prepareStatement("SELECT * FROM BEBIDAS WHERE IDCARDAPIO = ?");
+			ps.setInt(1, id);
+			rs = ps.executeQuery();
+			listbebidas = converterEmBebidas(rs);
+			return listbebidas;
+
+		} catch (SQLException e) {
+			throw new ExcessaoSQL("Erro ao buscar pratos por Id de Estabelecimento: " + e.getLocalizedMessage());
+		}
+
+	}
+
+	public List<Bebidas> converterEmBebidas(ResultSet rs) {
+		try {
+			List<Bebidas> listbebidas = new ArrayList();
+			while (rs.next()) {
+				Bebidas bebidas = new Bebidas();
+				bebidas.setIDBebida(rs.getInt("IDBEBIDA"));
+				bebidas.setNome(rs.getString("NOME"));
+				bebidas.setTipoBebida(rs.getString("TIPOBEBIDA"));
+				bebidas.setValor(rs.getDouble("VALOR"));
+				bebidas.setImagem(rs.getString("IMAGEM"));
+				listbebidas.add(bebidas);
+			}
+			return listbebidas;
+		} catch (SQLException e) {
+			throw new ExcessaoSQL("Erro ao Converter SQL em Bebidas: " + e.getMessage());
+		}
+
+	}
+
 }

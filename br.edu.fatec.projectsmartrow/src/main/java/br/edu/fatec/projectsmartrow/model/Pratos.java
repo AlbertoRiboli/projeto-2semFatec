@@ -1,8 +1,15 @@
 package br.edu.fatec.projectsmartrow.model;
 
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
+
+import br.edu.fatec.projectsmartrow.database.ConexaoDB;
+import br.edu.fatec.projectsmartrow.exceptions.ExcessaoSQL;
 
 public class Pratos {
 	private Integer IDPrato;
@@ -108,8 +115,7 @@ public class Pratos {
 	@Override
 	public String toString() {
 		return "[IDPrato=" + IDPrato + ", nome=" + nome + ", tipoPrato=" + tipoPrato + ", ingredientes=" + ingredientes
-				+ ", valor=" + valor + ", imagem=" + imagem + ", avaliacao=" + String.format("%.2f", getAvaliacao())
-				+ "]";
+				+ ", valor=" + valor + ", imagem=" + imagem + ", avaliacao=" + "]";
 	}
 
 	public List<Pratos> adicionarPrato() {
@@ -147,5 +153,7 @@ public class Pratos {
 		System.out.println("-------------------------\n\n\n");
 		return pratosList;
 	}
+
+
 
 }

@@ -1,8 +1,15 @@
 package br.edu.fatec.projectsmartrow.model;
 
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
+
+import br.edu.fatec.projectsmartrow.database.ConexaoDB;
+import br.edu.fatec.projectsmartrow.exceptions.ExcessaoSQL;
 
 public class Bebidas {
 
@@ -114,5 +121,6 @@ public class Bebidas {
 		System.out.println("-------------------------\n\n\n");
 		return bebidasList;
 	}
-
+	
+	
 }

@@ -38,7 +38,7 @@ public class EstabelecimentoResources {
 		horarioFuncionamento = sc.nextLine();
 		System.out.println("O Faturamento será cadastrado como [Padrao = 5%]\n\n");
 		faturamento = new Faturamento("Padrao", 5.0);
-		System.out.print("Digite o CEP do endereço: ");
+		System.out.print("Digite o CEP do endereco Exemplo[00000000]: ");
 		String cep = sc.nextLine();
 		endereco = enderecoresource.CadastrarEnderecoAPI(cep);
 		

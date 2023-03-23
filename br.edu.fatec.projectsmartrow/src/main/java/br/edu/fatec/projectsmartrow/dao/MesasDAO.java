@@ -5,6 +5,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.ArrayList;
 import java.util.List;
 
 import br.edu.fatec.projectsmartrow.database.ConexaoDB;
@@ -22,12 +23,10 @@ public class MesasDAO {
 		ResultSet rs = null;
 
 		try {
-
 			if (estabelecimento.getMesas() != null) {
 				for (int i = 0; i < estabelecimento.getMesas().size(); i++) {
 					int numMesa = estabelecimento.getMesas().get(i).getNumMesa();
 					int capacidadePessoas = estabelecimento.getMesas().get(i).getCapacidadePessoas();
-
 					PreparedStatement ps = null;
 					ps = conn.prepareStatement(
 									"INSERT INTO MESAS "
@@ -57,5 +56,32 @@ public class MesasDAO {
 //			
 		}
 
+	}
+	
+	public List<Mesas> buscarMesaPorEstabelecimento(int id) {
+		try {
+			Connection conn = ConexaoDB.getConnection();
+			PreparedStatement ps = null;
+			List<Mesas> list = new ArrayList();
+			ps = conn.prepareStatement("SELECT * FROM MESAS WHERE ID_ESTABELECIMENTO = ?");
+			ps.setInt(1, id);
+			ResultSet rs = ps.executeQuery();
+			list = converterEmMesa(rs);
+			return list;
+		} catch (SQLException e) {
+			throw new ExcessaoSQL("Erro ao buscar de mesas por Id!" + e.getMessage());
+		}
+	}
+
+	public List<Mesas> converterEmMesa(ResultSet rs) throws SQLException {
+		List<Mesas> list = new ArrayList();
+		while (rs.next()) {
+			Mesas mesa = new Mesas();
+			mesa.setIDMesa(rs.getInt("IDMESAS"));
+			mesa.setNumMesa(rs.getInt("NUMMESAS"));
+			mesa.setCapacidadePessoas(rs.getInt("CAPACIDADE_PESSOAS"));
+			list.add(mesa);
+		}
+		return list;
 	}
 }

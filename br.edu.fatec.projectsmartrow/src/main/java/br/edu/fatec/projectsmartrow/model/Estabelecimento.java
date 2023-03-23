@@ -2,6 +2,7 @@ package br.edu.fatec.projectsmartrow.model;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.List;
 
 import br.edu.fatec.projectsmartrow.application.PrincipalEstabelecimento;
@@ -23,13 +24,12 @@ public class Estabelecimento {
 	private List<Double> avaliacao;
 	private List<Mesas> mesas;
 	private CategoriaEstabelecimento categoriaEstabelecimento;
-	
-	public Estabelecimento () {}
-	
-	
 
-	public Estabelecimento(String nome, String cnpj, String telefone, String telefone2,
-			String email, String horarioFuncionamento, Integer aberto, String imagemEstabelecimento, Endereco endereco,
+	public Estabelecimento() {
+	}
+
+	public Estabelecimento(String nome, String cnpj, String telefone, String telefone2, String email,
+			String horarioFuncionamento, Integer aberto, String imagemEstabelecimento, Endereco endereco,
 			CategoriaEstabelecimento categoriaEstabelecimento) {
 		this.nome = nome;
 		this.cnpj = cnpj;
@@ -42,8 +42,6 @@ public class Estabelecimento {
 		this.endereco = endereco;
 		this.categoriaEstabelecimento = categoriaEstabelecimento;
 	}
-
-
 
 	public Integer getIDEstabelecimento() {
 		return IDEstabelecimento;
@@ -140,11 +138,11 @@ public class Estabelecimento {
 	public void setCategoriaEstabelecimento(CategoriaEstabelecimento categoriaEstabelecimento) {
 		this.categoriaEstabelecimento = categoriaEstabelecimento;
 	}
-	
+
 	public Cardapio getCardapio() {
 		return cardapio;
 	}
-	
+
 	public void setCardapio(Cardapio cardapio) {
 		this.cardapio = cardapio;
 	}
@@ -152,14 +150,14 @@ public class Estabelecimento {
 	public void setMesas(List<Mesas> list) {
 		this.mesas = list;
 	}
-	
-	public List<Mesas> getMesas(){
+
+	public List<Mesas> getMesas() {
 		return this.mesas;
 	}
 
 	public Double getAvaliacao() {
 		Double mediaAvaliacao = 0.0;
-		for(Double obj : avaliacao) {
+		for (Double obj : avaliacao) {
 			mediaAvaliacao += obj;
 		}
 		mediaAvaliacao = mediaAvaliacao / (avaliacao.size());
@@ -172,39 +170,34 @@ public class Estabelecimento {
 
 	@Override
 	public String toString() {
-		return "Estabelecimento [IDEstabelecimento =" + IDEstabelecimento + ", nome=" + nome + ", cnpj=" + cnpj + ", telefone=" + telefone + ", telefone2="
-				+ telefone2 + ", email=" + email + ", horarioFuncionamento=" + horarioFuncionamento + ", aberto="
-				+ aberto + ", imagemEstabelecimento=" + imagemEstabelecimento + ", faturamento=" + faturamento
-				+ ", endereco=" + endereco + ", categoriaEstabelecimento=" + categoriaEstabelecimento + "]";
-	}
-	
-	public Estabelecimento converterEmEstabelecimento (ResultSet rs) throws SQLException {
-		Estabelecimento est = new Estabelecimento();
-		est.setIDEstabelecimento(rs.getInt("ID"));
-		est.setNome(rs.getString(rs.getString("NOME")));
-		est.setCnpj(rs.getString(rs.getString("CNPJ")));
-		est.setTelefone(rs.getString("TELEFONE"));
-		est.setTelefone2(rs.getString("TELEFONE2"));
-		est.setEmail(rs.getString("EMAIL"));
-		est.setHorarioFuncionamento(rs.getString("HORARIOFUNCIONAMENTO"));
-		est.setAberto(rs.getInt("ABERTO"));
-		est.setImagemEstabelecimento(rs.getString("IMAGEMESTABELECIMENTO"));
-//		est.setFaturamento(faturamento); Aguardar a implementação do método para instansiar Faturamento do Banco de Dados
-//		est.setCardapio();
-//		est.setEndereco(endereco);
-//		est.setAvaliacao(getAvaliacao());
-//		est.setMesas(mesas);
-//		est.setCategoriaEstabelecimento(categoriaEstabelecimento);
-		
-		
-		
-		
-		
-		return est;
-																					
-		
+		return "Estabelecimento [IDEstabelecimento =" + IDEstabelecimento + ", nome=" + nome + ", cnpj=" + cnpj
+				+ ", telefone=" + telefone + ", telefone2=" + telefone2 + ", email=" + email + ", horarioFuncionamento="
+				+ horarioFuncionamento + ", aberto=" + aberto + ", imagemEstabelecimento=" + imagemEstabelecimento
+				+ ", faturamento=" + faturamento + ", endereco=" + endereco + ", categoriaEstabelecimento="
+				+ categoriaEstabelecimento + "]";
 	}
 
+
 	
+	public String estabelecimentoCabecalho() {
+		return "USUARIO: [" + nome + "] | [CNPJ: " + cnpj + "]";
+	}
+	
+	public void imprimirEstabelecimento() {
+		System.out.println("\n---------------------------------------------------------------");
+		System.out.println("ESTABELECIMENTO: " + nome + " | ID: " + IDEstabelecimento + " | CNPJ: " + cnpj);
+		System.out.println("TELEFONE: " + telefone + " | TELEFONE:" + telefone2 + " | EMAIL: " + email);
+		System.out.println("HORARIO FUNCIONAMENTO: " + horarioFuncionamento + "ABERTO? " + aberto);
+		System.out.println("IMAGEM DO ESTABELEIMENTO: EM IMPLANTACAO | FATURAMENTO: PADRAO 5%");
+		if (cardapio != null) {
+			cardapio.imprimirCardapio();
+		}
+		if (mesas != null) {
+			Mesas m = new Mesas();
+			m.imprimirMesas(mesas);
+		}
+		System.out.println("\n---------------------------------------------------------------\n");
+		
+	}
 
 }
