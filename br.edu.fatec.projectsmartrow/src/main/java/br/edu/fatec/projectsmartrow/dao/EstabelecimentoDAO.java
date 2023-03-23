@@ -35,10 +35,7 @@ public class EstabelecimentoDAO {
 			ps1.setString(6, estabelecimento.getHorarioFuncionamento());
 			ps1.setInt(7, estabelecimento.getAberto());
 			ps1.setString(8, estabelecimento.getImagemEstabelecimento());
-//			ps1.setInt(9, estabelecimento.getCardapio().getIDCardapio());
 			ps1.setInt(9, estabelecimento.getEndereco().getId());
-//			ps1.setInt(11, estabelecimento.getIDEstabelecimento());
-//			ps1.setString(12, estabelecimento.getCategoriaEstabelecimento());
 			
 			int registroModificados = ps1.executeUpdate();
 			if (registroModificados > 0) {
@@ -65,8 +62,8 @@ public class EstabelecimentoDAO {
 //			ConexaoDB.closeResultSet(rs);
 //			ConexaoDB.closeStatement(ps);
 //			ConexaoDB.closeStatement(ps1);
-
 		}
-
 	}
+	
+
 }

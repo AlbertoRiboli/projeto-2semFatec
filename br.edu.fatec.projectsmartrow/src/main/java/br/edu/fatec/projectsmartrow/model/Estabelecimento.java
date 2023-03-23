@@ -1,7 +1,10 @@
 package br.edu.fatec.projectsmartrow.model;
 
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.List;
 
+import br.edu.fatec.projectsmartrow.application.PrincipalEstabelecimento;
 import br.edu.fatec.projectsmartrow.model.enums.CategoriaEstabelecimento;
 
 public class Estabelecimento {
@@ -173,6 +176,33 @@ public class Estabelecimento {
 				+ telefone2 + ", email=" + email + ", horarioFuncionamento=" + horarioFuncionamento + ", aberto="
 				+ aberto + ", imagemEstabelecimento=" + imagemEstabelecimento + ", faturamento=" + faturamento
 				+ ", endereco=" + endereco + ", categoriaEstabelecimento=" + categoriaEstabelecimento + "]";
+	}
+	
+	public Estabelecimento converterEmEstabelecimento (ResultSet rs) throws SQLException {
+		Estabelecimento est = new Estabelecimento();
+		est.setIDEstabelecimento(rs.getInt("ID"));
+		est.setNome(rs.getString(rs.getString("NOME")));
+		est.setCnpj(rs.getString(rs.getString("CNPJ")));
+		est.setTelefone(rs.getString("TELEFONE"));
+		est.setTelefone2(rs.getString("TELEFONE2"));
+		est.setEmail(rs.getString("EMAIL"));
+		est.setHorarioFuncionamento(rs.getString("HORARIOFUNCIONAMENTO"));
+		est.setAberto(rs.getInt("ABERTO"));
+		est.setImagemEstabelecimento(rs.getString("IMAGEMESTABELECIMENTO"));
+//		est.setFaturamento(faturamento); Aguardar a implementação do método para instansiar Faturamento do Banco de Dados
+//		est.setCardapio();
+//		est.setEndereco(endereco);
+//		est.setAvaliacao(getAvaliacao());
+//		est.setMesas(mesas);
+//		est.setCategoriaEstabelecimento(categoriaEstabelecimento);
+		
+		
+		
+		
+		
+		return est;
+																					
+		
 	}
 
 	
