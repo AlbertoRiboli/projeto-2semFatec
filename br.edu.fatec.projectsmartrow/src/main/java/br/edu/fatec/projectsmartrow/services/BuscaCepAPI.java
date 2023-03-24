@@ -42,4 +42,28 @@ public class BuscaCepAPI {
 			throw new ExcessaoConexaoDB(e.getMessage());
 		}
 	}
+	
+	public static Endereco atualizaEnderecobuscaCep(String cep, Endereco endereco) {
+		String reqUrl = enderecoReq + cep + "/json";
+		try {
+			URL url = new URL(reqUrl);
+			HttpURLConnection conn = (HttpURLConnection) url.openConnection();
+
+			if (conn.getResponseCode() != resultReq) {
+				throw new ExcessaoHttp("Erro HTTP :" + conn.getResponseCode());
+			}
+			BufferedReader response = new BufferedReader(new InputStreamReader((conn.getInputStream())));
+			String jsonToString = ConversorJsonString.jsonToString(response);
+			JSONObject obj = new JSONObject(jsonToString);
+			endereco.setCep(cep);
+			endereco.setLocalidade(obj.getString("localidade"));
+			endereco.setLogradouro(obj.getString("logradouro"));
+			endereco.setPais("Brasil");
+			endereco.setUf(obj.getString("uf"));
+			endereco.setBairro(obj.getString("bairro"));
+			return endereco;
+		} catch (IOException e) {
+			throw new ExcessaoConexaoDB(e.getMessage());
+		}
+	}
 }

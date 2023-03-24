@@ -12,4 +12,9 @@ public class EnderecoResource {
 		return endereco;
 	}
 	
+	public Endereco atualizarEndereco(Endereco endereco) {
+		endereco = service.atualizarEndereco(endereco);
+		return endereco;
+	}
+	
 }

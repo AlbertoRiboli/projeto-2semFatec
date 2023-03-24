@@ -89,12 +89,17 @@ public class EstabelecimentoService {
 		System.out.println("\n\n--------------------------------");
 		System.out.println("ESTABELECIMENTO ADICIONADO COM SUCESSO");
 		System.out.println("\n\n--------------------------------");
-		System.out.print("Deseja selecionado como usuário do sistema agora? 1-SIM | 2-NAO");
+		System.out.print("Deseja selecionado como usuário do sistema agora? 1-SIM | 2-NAO: ");
 		int opc2 = sc.nextInt();
 		if (opc2 == 1) {
 			PrincipalEstabelecimento.setUsuarioEstabelecimento(estabelecimento);
+			
 		}
 		
+	}
+
+	public void atualizarEstabelecimento(Estabelecimento estabelecimento) {
+		dao.atualizarEstabelecimento(estabelecimento);
 	}
 
 }

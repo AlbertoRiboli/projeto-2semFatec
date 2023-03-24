@@ -16,7 +16,7 @@ import br.edu.fatec.projectsmartrow.model.Mesas;
 
 public class EnderecoDAO {
 
-	public void insertEndereco(Endereco endereco) {
+	public void insertEndereco(Endereco endereco) {									//Metodo DAO para inserir o endereço no banco de dados
 		Connection conn = ConexaoDB.getConnection();
 		PreparedStatement ps1 = null;
 		
@@ -66,7 +66,7 @@ public class EnderecoDAO {
 		
 	}
 	
-	public Endereco buscarEnderecoPorEstabelecimentoId(int id) {
+	public Endereco buscarEnderecoPorEstabelecimentoId(int id) {						//Metodo DAO para buscar o endereço no banco de dados
 		try {
 			Connection conn = ConexaoDB.getConnection();
 			PreparedStatement ps = null;
@@ -74,7 +74,7 @@ public class EnderecoDAO {
 			ps = conn.prepareStatement("SELECT ENDERECO.* "
 					+ "FROM ENDERECO INNER JOIN ESTABELECIMENTO "
 					+ "ON ENDERECO.IDENDERECO = ESTABELECIMENTO.ENDERECO "
-					+ "WHERE ESTABELECIMENTO.ENDERECO = ?");
+					+ "WHERE ESTABELECIMENTO.ID = ?");
 			ps.setInt(1, id);
 			ResultSet rs = ps.executeQuery();
 			endereco = converterEmEndereco(rs);
@@ -97,6 +97,7 @@ public class EnderecoDAO {
 			endereco.setLocalidade(rs.getString("LOCALIDADE"));
 			endereco.setUf(rs.getString("UF"));
 			endereco.setPais(rs.getString("PAIS"));
+			endereco.setId(rs.getInt("IDENDERECO"));
 		}
 		return endereco;
 		}
@@ -106,8 +107,8 @@ public class EnderecoDAO {
 		
 	}
 	
-	public void atualizarEndereco(Endereco endereco) {
-		Connection conn = ConexaoDB.getConnection();
+	public void atualizarEndereco(Endereco endereco) {								//Metodo DAO para buscar o endereço no banco de dados
+		Connection conn = ConexaoDB.getConnection();	
 		PreparedStatement ps1 = null;
 		
 		try {
@@ -146,5 +147,34 @@ public class EnderecoDAO {
 		
 	}
 	
+	
+	public void deletarEnderecoPorId(int id) {								//Metodo DAO para buscar o endereço no banco de dados
+		Connection conn = ConexaoDB.getConnection();	
+		PreparedStatement ps1 = null;
+		
+		try {
+			ps1 = conn.prepareStatement(
+					 "DELETE FROM ENDERECO WHERE IDENDERECO = ?");
+			
+			ps1.setInt(1, id);
+			
+//			ps1.executeUpdate();
+			int registroModificados = ps1.executeUpdate();
+			
+			System.out.println("Registro de Endereco excluido com Sucesso!");
+			
+		}
+		catch (SQLException e) {
+			throw new ExcessaoConexaoDB("Erro ao Excluir Endereco: " + e.getMessage());
+		}
+		finally {
+//			ConexaoDB.closeConnection();
+//			ConexaoDB.closeResultSet(rs);
+//			ConexaoDB.closeStatement(ps);
+//			ConexaoDB.closeStatement(ps1);
+			
+		}
+		
+	}
 	
 }

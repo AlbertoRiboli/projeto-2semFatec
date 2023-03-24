@@ -6,10 +6,13 @@ import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
 import br.edu.fatec.projectsmartrow.dao.CardapioDAO;
+import br.edu.fatec.projectsmartrow.dao.EnderecoDAO;
 import br.edu.fatec.projectsmartrow.dao.EstabelecimentoDAO;
 import br.edu.fatec.projectsmartrow.dao.MesasDAO;
 import br.edu.fatec.projectsmartrow.database.ConexaoDB;
 import br.edu.fatec.projectsmartrow.model.Estabelecimento;
+import br.edu.fatec.projectsmartrow.resources.EstabelecimentoResources;
+import br.edu.fatec.projectsmartrow.services.EnderecoService;
 
 public class ProgramTest {
 
@@ -63,12 +66,33 @@ public class ProgramTest {
 //		Cardapio cardapio = new Cardapio();
 //		cardapio = cardapio.buscarCardapioPorIdEstabelecimento(23);
 //		cardapio.imprimirCardapio();
-		
+//		
 		Estabelecimento e1 = new Estabelecimento();
 		EstabelecimentoDAO edao = new EstabelecimentoDAO();
-		e1 = edao.buscarEstabelecimentoPorCnpj("12345");
+		EnderecoService eservice = new EnderecoService();
+		EnderecoDAO enddao = new EnderecoDAO();
+		EstabelecimentoResources er = new EstabelecimentoResources();
+//		
+		e1 = edao.buscarEstabelecimentoPorId(24);
+		e1.imprimirEstabelecimento();
+		e1.getCardapio().imprimirCardapio();
+		System.out.println("===============================");
+		
+//		er.atualizarEstabelecimento(e1);
+//		e1.imprimirEstabelecimento();
+		
+		
+		
+//		EnderecoResource endres = new EnderecoResource();
+//		EnderecoDAO enddao = new EnderecoDAO();
+//		Endereco endereco = new Endereco();
+//		endereco = enddao.buscarEnderecoPorEstabelecimentoId(20);
+//		endereco.exibirEndereco();
+//		System.out.println("ID Endereco : " + endereco.getId());
+//		
+//		endereco = endres.atualizarEndereco(endereco);
 	
-		e1.getCardapio().adicionarCardapio();
+		
 		
 		
 	}}

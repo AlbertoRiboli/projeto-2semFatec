@@ -121,5 +121,34 @@ public class Bebidas {
 		return bebidasList;
 	}
 	
+	public List<Bebidas> atualizarBebida(List<Bebidas> bebidasList) {
+		Scanner sc = new Scanner(System.in);
+		int opc = 0;
+
+		while (opc != 2) {
+			System.out.println("-------------------------");
+			System.out.println("ADICIONANDO BEBIDA");
+			System.out.println("-------------------------");
+
+			System.out.print("Digite o nome da bebida: ");
+			String nome = sc.nextLine();
+			System.out.print("Digite o tipo da bebida: ");
+			String tipoBebida = sc.nextLine();
+			System.out.print("Digite o valor da bebida: ");
+			Double valor = sc.nextDouble();
+			sc.nextLine();
+			System.out.print("Digite o caminho da imagem da bebida: ");
+			String imagem = sc.nextLine();
+			System.out.println("-------------------------");
+			bebidasList.add(new Bebidas(null, nome, tipoBebida, valor, imagem));
+
+			System.out.print("\n Deseja cadastrar outra bebida? 1-SIM / 2-NAO: ");
+			opc = sc.nextInt();
+		}
+		System.out.println("\n\n\n-------------------------");
+		System.out.println("CADASTRO DE BEBIDAS CONCLUIDO");
+		System.out.println("-------------------------\n\n\n");
+		return bebidasList;
+	}
 	
 }

@@ -84,4 +84,18 @@ public class MesasDAO {
 		}
 		return list;
 	}
+	
+	public void deletarMesasPorIdEstabelecimento(int id) {
+		try {
+			Connection conn = ConexaoDB.getConnection();
+			PreparedStatement ps = null;
+			
+			ps = conn.prepareStatement("DELETE FROM MESAS WHERE ID_ESTABELECIMENTO = ?");
+			ps.setInt(1, id);
+			ps.executeUpdate();
+		
+		} catch (SQLException e) {
+			throw new ExcessaoSQL("Erro ao Deletar Mesas!" + e.getMessage());
+		}
+	}
 }

@@ -154,6 +154,43 @@ public class Pratos {
 		
 		return pratosList;
 	}
+	
+	public List<Pratos> atualizarPrato(List<Pratos> pratosList) {
+		Scanner sc = new Scanner(System.in);
+		int opc = 0;
+
+		while (opc != 2) {
+			System.out.println("-------------------------");
+			System.out.println("ADICIONANDO PRATO");
+			System.out.println("-------------------------");
+
+			System.out.print("Digite o nome do prato: ");
+			String nome = sc.nextLine();
+			System.out.print("Digite o tipo do prato: ");
+			String tipoPrato = sc.nextLine();
+			System.out.print("Digite os ingredientes do prato: ");
+			String ingredientes = sc.nextLine();
+			System.out.print("Digite o valor do Prato: ");
+			Double valor = sc.nextDouble();
+			System.out.print("Digite o caminho da imagem do prato: ");
+			sc.nextLine();
+			String imagem = sc.nextLine();
+			System.out.println("-------------------------");
+			List<Double> aval = new ArrayList<>();
+			aval.add(5.0);
+			pratosList.add(new Pratos(null, nome, tipoPrato, ingredientes, valor, imagem, aval));
+
+			System.out.print("\n Deseja cadastrar outro prato? 1-SIM / 2-NAO: ");
+			opc = sc.nextInt();
+		}
+		System.out.println("\n\n\n-------------------------");
+		System.out.println("CADASTRO DE PRATOS CONCLUIDO");
+		System.out.println("-------------------------\n\n\n");
+		sc.nextLine();
+		
+		return pratosList;
+	}
+
 
 
 
