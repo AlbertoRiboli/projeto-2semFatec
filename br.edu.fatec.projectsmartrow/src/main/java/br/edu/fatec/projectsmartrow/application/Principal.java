@@ -9,6 +9,7 @@ import br.edu.fatec.projectsmartrow.dao.EstabelecimentoDAO;
 import br.edu.fatec.projectsmartrow.model.Cardapio;
 import br.edu.fatec.projectsmartrow.model.Estabelecimento;
 import br.edu.fatec.projectsmartrow.model.Mesas;
+import br.edu.fatec.projectsmartrow.resources.EnderecoResource;
 import br.edu.fatec.projectsmartrow.resources.EstabelecimentoResources;
 
 public class Principal {
@@ -35,7 +36,7 @@ public class Principal {
 			System.out.println("---------------------------------");
 			System.out.println("1 - Estabelecimento");
 			System.out.println("2 - Cliente: EM DESENVOLVIMENTO");
-			System.out.println("3 - Cadastrar Estabelecimento EM DESENVOLVIMENTO");
+			System.out.println("3 - Cadastrar Estabelecimento");
 			System.out.println("4 - Cadastrar Cliente EM DESENVOLVIMENTO");
 			System.out.println("5 - Finalizar Sistema");
 			System.out.println("---------------------------------");
@@ -140,6 +141,11 @@ public class Principal {
 					}
 
 				}
+				break;
+			case 3:
+				EstabelecimentoResources estabelecimentoresources = new EstabelecimentoResources();
+				estabelecimentoresources.adicionarEstabelecimento();
+				
 				break;
 			case 5:
 				System.out.println("\n\n\n\n\n|----------------------------------------|");
