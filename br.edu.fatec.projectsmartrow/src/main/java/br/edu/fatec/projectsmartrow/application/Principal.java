@@ -142,10 +142,16 @@ public class Principal {
 
 				}
 				break;
+
 			case 3:
 				EstabelecimentoResources estabelecimentoresources = new EstabelecimentoResources();
 				estabelecimentoresources.adicionarEstabelecimento();
+
 				
+				
+				
+			case 4: 
+			
 				break;
 			case 5:
 				System.out.println("\n\n\n\n\n|----------------------------------------|");
