@@ -141,6 +141,9 @@ public class Principal {
 
 				}
 				break;
+			case 4: 
+				
+				break;
 			case 5:
 				System.out.println("\n\n\n\n\n|----------------------------------------|");
 				System.out.println("|                                        |");
