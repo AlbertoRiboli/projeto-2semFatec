@@ -19,7 +19,7 @@ public class Bebidas {
 	private Double valor;
 	private String imagem;
 
-	public Bebidas() {
+	public Bebidas() {					//Classe Bebidas que compoe o Cardapio de Cada estabelecimento
 	}
 
 	public Bebidas(Integer iDBebida, String nome, String tipoBebida, Double valor, String imagem) {
@@ -70,7 +70,7 @@ public class Bebidas {
 		this.imagem = imagem;
 	}
 
-	public void imprimirBebidas(List<Bebidas> bebidas) {
+	public void imprimirBebidas(List<Bebidas> bebidas) {   //Metodo que retorna uma lista de bebidas cadastradas no Cardapio de um estabelecimento
 		if (bebidas == null) {
 			System.out.println("A Lista de Bebidas esta vazia!");
 		} else {
@@ -90,7 +90,7 @@ public class Bebidas {
 				+ ", imagem=" + imagem + "]";
 	}
 
-	public List<Bebidas> adicionarBebida() {
+	public List<Bebidas> adicionarBebida() {				//Metodo responsavel receber os dados referente aos atributos e retornar um objeto do tipo Bebidas
 		List<Bebidas> bebidasList = new ArrayList<>();
 		Scanner sc = new Scanner(System.in);
 		int opc = 0;
@@ -121,7 +121,7 @@ public class Bebidas {
 		return bebidasList;
 	}
 	
-	public List<Bebidas> atualizarBebida(List<Bebidas> bebidasList) {
+	public List<Bebidas> atualizarBebida(List<Bebidas> bebidasList) {			//Metodo que recebe uma Lista de Bebidas provinda de um Cardapio e atualiza conforme os novos dados.
 		Scanner sc = new Scanner(System.in);
 		int opc = 0;
 

@@ -8,7 +8,7 @@ import java.util.List;
 import br.edu.fatec.projectsmartrow.application.PrincipalEstabelecimento;
 import br.edu.fatec.projectsmartrow.model.enums.CategoriaEstabelecimento;
 
-public class Estabelecimento {
+public class Estabelecimento {				//Classe que instaciará um Estabelecimento com suas composições, alguns são objetos gerados em outras classes
 	private Integer IDEstabelecimento;
 	private String nome;
 	private String cnpj;
@@ -179,7 +179,7 @@ public class Estabelecimento {
 
 
 	
-	public String estabelecimentoCabecalho() {
+	public String estabelecimentoCabecalho() {					//Metodo auxiliar com uma construção minimizada para imprimir um Estabelecimento com CNPJ apenas
 		return "USUARIO: [" + nome + "] | [CNPJ: " + cnpj + "]";
 	}
 	
@@ -187,8 +187,11 @@ public class Estabelecimento {
 		System.out.println("\n---------------------------------------------------------------");
 		System.out.println("ESTABELECIMENTO: " + nome + " | ID: " + IDEstabelecimento + " | CNPJ: " + cnpj);
 		System.out.println("TELEFONE: " + telefone + " | TELEFONE:" + telefone2 + " | EMAIL: " + email);
-		System.out.println("HORARIO FUNCIONAMENTO: " + horarioFuncionamento + "ABERTO? " + aberto);
-		System.out.println("IMAGEM DO ESTABELEIMENTO: EM IMPLANTACAO | FATURAMENTO: PADRAO 5%");
+		System.out.println("HORARIO FUNCIONAMENTO: " + horarioFuncionamento + " | ABERTO? " + aberto);
+		System.out.println("IMAGEM DO ESTABELEIMENTO: EM IMPLANTACAO | FATURAMENTO: PADRAO 5%\n");
+		if (endereco != null) {
+			endereco.exibirEndereco();
+		}
 		if (cardapio != null) {
 			cardapio.imprimirCardapio();
 		}

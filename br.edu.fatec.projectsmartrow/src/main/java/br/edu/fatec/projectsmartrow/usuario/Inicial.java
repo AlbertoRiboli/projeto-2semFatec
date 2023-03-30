@@ -5,11 +5,12 @@ import java.util.Scanner;
 
 public class Inicial {
 
-	public static void main(String[] args) {
+
+	public void inicialUsuario() {
 		Cadastro gerenciador = new Cadastro();
-		try (Scanner scanner = new Scanner(System.in)) {
+		Scanner scanner = new Scanner(System.in);
 			UsuarioDAO usuarioDAO = new UsuarioDAO();
-			System.out.println("MENU DE OPÇÕES");
+			System.out.println("\n\n\nMENU DE OPÇÕES");
 			System.out.println("1 - Cadastrar novo usuário");
 			System.out.println("2 - Listar todos os usuários");
 			System.out.println("3 - Consultar usuário");
@@ -142,7 +143,7 @@ public class Inicial {
 				System.out.print("Escolha uma opção: ");
 					opcao = scanner.nextInt();
 			    }
-		}
+	
 	}
 
     public static void imprimirDadosUsuario(Usuario usuario) {

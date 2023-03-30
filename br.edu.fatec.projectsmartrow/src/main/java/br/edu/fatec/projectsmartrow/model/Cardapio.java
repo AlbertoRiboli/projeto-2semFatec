@@ -11,7 +11,7 @@ import java.util.Scanner;
 import br.edu.fatec.projectsmartrow.database.ConexaoDB;
 import br.edu.fatec.projectsmartrow.exceptions.ExcessaoSQL;
 
-public class Cardapio {
+public class Cardapio {					//Classe que armazena uma lista de bebidas e uma lista de pratos que compoem o Cardapio criado pelo estabelecimento
 
 	private Integer IDCardapio;
 	private List<Pratos> pratos;
@@ -50,7 +50,7 @@ public class Cardapio {
 		return pratos;
 	}
 
-	public Cardapio adicionarCardapio() {
+	public Cardapio adicionarCardapio() {		//Metodo que adiciona uma composição de uma lista de pratos e bebidas que compoem um Cardapio
 
 		Scanner sc = new Scanner(System.in);
 		Pratos pt = new Pratos();
@@ -79,7 +79,7 @@ public class Cardapio {
 		return cd;
 	}
 
-	public void imprimirCardapio() {
+	public void imprimirCardapio() {					//Metodo para imprimir um cardapio que seja passado como argumento na chamada da função
 		if (pratos == null && bebidas == null) {
 			System.out.println("O Cadastro de Cardapio está vazio!");
 		} else {

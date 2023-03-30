@@ -9,8 +9,8 @@ import br.edu.fatec.projectsmartrow.dao.EstabelecimentoDAO;
 import br.edu.fatec.projectsmartrow.model.Cardapio;
 import br.edu.fatec.projectsmartrow.model.Estabelecimento;
 import br.edu.fatec.projectsmartrow.model.Mesas;
-import br.edu.fatec.projectsmartrow.resources.EnderecoResource;
 import br.edu.fatec.projectsmartrow.resources.EstabelecimentoResources;
+import br.edu.fatec.projectsmartrow.usuario.Inicial;
 
 public class Principal {
 	public static void main(String[] args) {
@@ -35,9 +35,9 @@ public class Principal {
 			System.out.println("BEM VINDO AO SMART ROW 1.0");
 			System.out.println("---------------------------------");
 			System.out.println("1 - Estabelecimento");
-			System.out.println("2 - Cliente: EM DESENVOLVIMENTO");
+			System.out.println("2 - Cliente: ");
 			System.out.println("3 - Cadastrar Estabelecimento");
-			System.out.println("4 - Cadastrar Cliente EM DESENVOLVIMENTO");
+//			System.out.println("4 - Cadastrar Cliente EM DESENVOLVIMENTO");
 			System.out.println("5 - Finalizar Sistema");
 			System.out.println("---------------------------------");
 			System.out.print("Digite a opcao: ");
@@ -142,12 +142,19 @@ public class Principal {
 
 				}
 				break;
+			case 2:
+				Inicial inicial = new Inicial();
+				inicial.inicialUsuario();
+				break;
 			case 3:
+				
+				
 				EstabelecimentoResources estabelecimentoresources = new EstabelecimentoResources();
 				estabelecimentoresources.adicionarEstabelecimento();
 				
 				break;
 			case 5:
+				
 				System.out.println("\n\n\n\n\n|----------------------------------------|");
 				System.out.println("|                                        |");
 				System.out.println("|     Sistema finalizado pelo Usuario!   |");

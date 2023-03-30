@@ -1,6 +1,6 @@
 package br.edu.fatec.projectsmartrow.model;
 
-public class EnderecoCliente extends Endereco {
+public class EnderecoCliente extends Endereco { 			//Classe que em futura implantação herdará a superclasse Endereço
 
 	private String tipoEndereco;
 

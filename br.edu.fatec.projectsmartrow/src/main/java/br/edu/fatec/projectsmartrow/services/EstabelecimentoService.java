@@ -18,8 +18,11 @@ public class EstabelecimentoService {
 	EstabelecimentoDAO dao = new EstabelecimentoDAO();
 	MesasDAO mdao = new MesasDAO();
 
-	public void adicionarEstabelecimento(Estabelecimento estabelecimento) {
-		System.out.println("\n\n##########################");
+	/*
+	 * Classe responsável em gerenciar as regras de intermedio das classes Resource e DAO 
+	 */
+	public void adicionarEstabelecimento(Estabelecimento estabelecimento) { //Metodo que recebe os objetos que compoem o Objeto estabelecimento, faz o gerenciamneto do fluxo da aplicação conforme escolha
+		System.out.println("\n\n##########################");				//do usuário. 
 		System.out.print("DESEJA ADICIONAR O CARDAPIO \nAO SEU CADASTRO? 1-SIM / 2-NAO: ");
 		int opc = 0;
 		boolean cond = true;
@@ -84,9 +87,9 @@ public class EstabelecimentoService {
 			}
 		}
 		System.out.println("##########################\n\n");
-		dao.insertEstabelecimento(estabelecimento);
-		
-		System.out.println("\n\n--------------------------------");
+		dao.insertEstabelecimento(estabelecimento);  //Nesse ponto o estabelecimento objeto é repassado junto com seus compostos para a classe DAO responsável em armazenar no banco de dados
+													// Esse objeto foi bem delicado de fazer, uma vez que existem n relacionamentos. Na aplicação ele recebe os objetos em si
+		System.out.println("\n\n--------------------------------");	// No banco de dados, a tabela em questão recebe o ID condizente com o objeto referenciado.
 		System.out.println("ESTABELECIMENTO ADICIONADO COM SUCESSO");
 		System.out.println("\n\n--------------------------------");
 		System.out.print("Deseja selecionado como usuário do sistema agora? 1-SIM | 2-NAO: ");
@@ -98,7 +101,7 @@ public class EstabelecimentoService {
 		
 	}
 
-	public void atualizarEstabelecimento(Estabelecimento estabelecimento) {
+	public void atualizarEstabelecimento(Estabelecimento estabelecimento) {  //Apenas repassa o objeto para a camada DAO para atualizar um estabelecimento já existente
 		dao.atualizarEstabelecimento(estabelecimento);
 	}
 

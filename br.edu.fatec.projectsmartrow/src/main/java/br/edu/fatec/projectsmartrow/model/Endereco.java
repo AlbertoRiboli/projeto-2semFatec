@@ -1,6 +1,6 @@
 package br.edu.fatec.projectsmartrow.model;
 
-public class Endereco {
+public class Endereco {		//SuperClasse que gerará duas heranças: EndereçoClinte e EndereçoEstabelecimento (Será implantado futuramente)
 	
 	private Integer id;
 	private String cep;
@@ -116,7 +116,7 @@ public Endereco(String cep, String logradouro, String numero, String complemento
 				+ ", uf=" + uf + ", pais=" + pais + "]";
 	}
 	
-	public void exibirEndereco() {
+	public void exibirEndereco() {  //Metodo usado para imprimir um endereço. Nesse em espeial, usei a StringBuilder para ficar mais apresentavel a estrutura do print
 		StringBuilder sb = new StringBuilder();
 		sb.append("Endereco: " + logradouro + " | Num.: " + numero + " | Complemento: " + complemento);
 		sb.append("\nBairro: " + bairro + " | Cidade: " + localidade + "\nUF: " + uf  );
