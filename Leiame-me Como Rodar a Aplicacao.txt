@@ -1,0 +1,10 @@
+Essa primeira versão do Smarthub, Focamos no cadastro do Estabelecimento e Cliente.
+Nesse primeiro momento, A aplicação apresenta um menu principal onde ramifica para
+as opções pertinentes. Na opção estabelecimento,temos um CRUD completo armazenando dentro
+de um banco de dados integrado h2, dentro do codigo existem comentários explicando cada
+função e forma de conexão. Na opção Usuario, temos as opções pertinentes a usuarios e elas armazenam em listas e vetores dentro das classes DAO.
+Cada Package se diz respeito a uma camada ou setor da aplicação.
+A aplicação deve rodar a partir do arquivo Principal.java localizado no Package application,
+e através dele podemos acessar toda a aplicação.
+Lembrando que essa é a versão inicial em desenvolvimento, tentamos focar um CRUD no setor 
+explorado para essa primeira entrega. 

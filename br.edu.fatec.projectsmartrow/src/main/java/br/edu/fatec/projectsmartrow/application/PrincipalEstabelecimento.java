@@ -26,7 +26,7 @@ public class PrincipalEstabelecimento {
 		System.out.println("---------------------------------------------------------------");
 		System.out.println("| 1 - CADASTRAR NOVO ESTABELECIMENTO                          |");
 		System.out.println("| 2 - BUSCAR ESTABELECIMENTO POR CNPJ                         |");
-		System.out.println("| 3 - ALTERAR CADASTRO DE ESTABELECIMENTO (EM DEV)            |");
+		System.out.println("| 3 - ALTERAR CADASTRO DE ESTABELECIMENTO                     |");
 		System.out.println("| 4 - IMPRIMIR TODOS OS ESTABELECIMENTOS                      |");
 		System.out.println("| 5 - ADICIONAR CARDAPIO (EM REVISAO. ESTA SUBSTITUINDO NO BD |");
 		System.out.println("| 6 - CONSULTAR CARDAPIO                                      |");
