@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="335.0" styleClass="fundoPadrao" stylesheets="@../../style.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.edu.fateccotia.projectsmartrow.view.cliente.controllersviews.CadastrarClienteEnderecoViewController">
+   <children>
+      <Button fx:id="btnProximo" layoutX="62.0" layoutY="472.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="212.0" styleClass="btnEntrar" stylesheets="@../style.css" text="Próximo" />
+      <Label layoutX="58.0" layoutY="38.0" prefHeight="27.0" prefWidth="225.0" text="Preencha os dados abaixo">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font></Label>
+      <TextField fx:id="textCep" alignment="CENTER" layoutX="48.0" layoutY="139.0" prefHeight="25.0" prefWidth="162.0" promptText="cep (apenas números)*" style="-fx-border-radius: 30;" styleClass="textFormat" stylesheets="@../style.css" />
+      <Label layoutX="48.0" layoutY="122.0" text="Digite um cep válido para localizar o endereço" />
+      <Label fx:id="labelStatus" alignment="CENTER" contentDisplay="CENTER" layoutX="68.0" layoutY="89.0" prefHeight="18.0" prefWidth="206.0" textAlignment="CENTER" textFill="#ff2200" textOverrun="CENTER_ELLIPSIS" />
+      <TextField fx:id="textLogradouro" alignment="CENTER" disable="true" editable="false" focusTraversable="false" layoutX="45.0" layoutY="202.0" opacity="0.45" prefHeight="25.0" prefWidth="246.0" promptText="logradouro" style="-fx-background-color: #A9A9A9; -fx-text-fill: BLACK;" styleClass="textFormat" stylesheets="@../style.css" />
+      <Label layoutX="45.0" layoutY="185.0" text="logradouro">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </Label>
+      <TextField fx:id="textNumero" alignment="CENTER" layoutX="45.0" layoutY="251.0" prefHeight="25.0" prefWidth="64.0" promptText="número*" style="-fx-border-radius: 30;" styleClass="textFormat" stylesheets="@../style.css" />
+      <Label layoutX="45.0" layoutY="234.0" text="número">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </Label>
+      <TextField fx:id="textComplemento" alignment="CENTER" layoutX="118.0" layoutY="251.0" prefHeight="25.0" prefWidth="170.0" promptText="complemento" style="-fx-border-radius: 30;" styleClass="textFormat" stylesheets="@../style.css" />
+      <Label layoutX="118.0" layoutY="234.0" text="complemento">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </Label>
+      <TextField fx:id="textReferencia" alignment="CENTER" layoutX="45.0" layoutY="296.0" prefHeight="25.0" prefWidth="246.0" promptText="referência" style="-fx-border-radius: 30;" styleClass="textFormat" stylesheets="@../style.css" />
+      <Label layoutX="45.0" layoutY="279.0" text="referencia">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </Label>
+      <TextField fx:id="textBairro" alignment="CENTER" disable="true" editable="false" layoutX="45.0" layoutY="341.0" prefHeight="25.0" prefWidth="246.0" promptText="bairro" style="-fx-background-color: #A9A9A9; -fx-text-fill: BLACK;" styleClass="textFormat" stylesheets="@../style.css" />
+      <Label layoutX="48.0" layoutY="324.0" text="bairro">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </Label>
+      <TextField fx:id="textCidade" alignment="CENTER" disable="true" editable="false" layoutX="45.0" layoutY="389.0" prefHeight="25.0" prefWidth="170.0" promptText="cidade" style="-fx-background-color: #A9A9A9; -fx-text-fill: BLACK;" styleClass="textFormat" stylesheets="@../style.css" />
+      <Label layoutX="48.0" layoutY="372.0" text="cidade">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </Label>
+      <TextField fx:id="textUf" alignment="CENTER" disable="true" editable="false" layoutX="224.0" layoutY="389.0" prefHeight="25.0" prefWidth="64.0" promptText="uf" style="-fx-background-color: #A9A9A9; -fx-text-fill: BLACK;" styleClass="textFormat" stylesheets="@../style.css" />
+      <Label layoutX="224.0" layoutY="372.0" text="uf">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </Label>
+      <ImageView fx:id="btEncerrar" fitHeight="38.0" fitWidth="34.0" layoutX="11.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../images/off.png" />
+         </image>
+      </ImageView>
+      <Button fx:id="btnBuscar" layoutX="220.0" layoutY="139.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="73.0" styleClass="btnBuscar" stylesheets="@../../style.css" text="Buscar" />
+   </children>
+</AnchorPane>

@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="377.0" prefWidth="335.0" styleClass="fundoPadrao" stylesheets="@../../style.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.edu.fateccotia.projectsmartrow.view.cliente.controllersviews.VisualizarBebidasEstabelecimentoViewController">
+   <children>
+      <ImageView fitHeight="95.0" fitWidth="119.0" layoutX="8.0" layoutY="69.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../images/salada.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="99.0" fitWidth="106.0" layoutX="13.0" layoutY="198.0" pickOnBounds="true" preserveRatio="true" rotate="-27.3">
+         <image>
+            <Image url="@../../images/suco.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="68.0" fitWidth="113.0" layoutX="231.0" layoutY="214.0" pickOnBounds="true" preserveRatio="true" rotate="-31.0">
+         <image>
+            <Image url="@../../images/frutas.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="65.0" fitWidth="104.0" layoutX="244.0" layoutY="87.0" pickOnBounds="true" preserveRatio="true" rotate="18.4">
+         <image>
+            <Image url="@../../images/drinks.png" />
+         </image>
+      </ImageView>
+      <Label fx:id="labelBemVindo" layoutX="107.0" layoutY="14.0" prefHeight="24.0" prefWidth="123.0" text="Visualizar Bebidas">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
+      </Label>
+      <Label fx:id="labelCliente" layoutX="93.0" layoutY="38.0" prefHeight="24.0" prefWidth="219.0">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
+      </Label>
+      <Button fx:id="btnRetornar" layoutX="115.0" layoutY="316.0" mnemonicParsing="false" prefHeight="47.0" prefWidth="106.0" styleClass="btnBuscar" stylesheets="@../../style.css" text="Retornar" textAlignment="CENTER" wrapText="true" />
+      <ListView fx:id="listBebidas" layoutX="68.0" layoutY="50.0" opacity="0.8" prefHeight="250.0" prefWidth="199.0" />
+     
+   </children>
+</AnchorPane>

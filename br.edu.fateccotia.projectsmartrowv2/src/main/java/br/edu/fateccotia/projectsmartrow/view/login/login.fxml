@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Hyperlink?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="335.0" styleClass="fundoPadrao" stylesheets="@../style.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.edu.fateccotia.projectsmartrow.view.login.LoginViewController">
+	<children>
+		<ImageView fitHeight="167.0" fitWidth="325.0" layoutX="14.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+			<image>
+				<Image url="@../images/logo.png" />
+			</image>
+		</ImageView>
+		<PasswordField fx:id="textSenha" alignment="CENTER" layoutX="64.0" layoutY="280.0" prefHeight="24.0" prefWidth="212.0" promptText="senha" style="-fx-border-radius: 30;" styleClass="textFormat" stylesheets="@../style.css" />
+		<Button fx:id="btnEntrar" layoutX="64.0" layoutY="339.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="212.0" styleClass="btnEntrar" stylesheets="@../style.css" text="Entrar" />
+		<Hyperlink fx:id="linkCadastrarUsuario" layoutX="95.0" layoutY="444.0" text="Cadastrar como cliente" />
+		<Hyperlink fx:id="linkCadastrarEstabelecimento" layoutX="68.0" layoutY="483.0" text="Cadastrar como estabelecimento" />
+		<TextField fx:id="textEmail" alignment="CENTER" layoutX="64.0" layoutY="230.0" prefHeight="24.0" prefWidth="212.0" promptText="email" style="-fx-border-radius: 30;" styleClass="textFormat" stylesheets="@../style.css" />
+		<Label layoutX="98.0" layoutY="172.0" text="Como deseja continuar?" />
+		<Label fx:id="labelStatus" alignment="CENTER" contentDisplay="CENTER" layoutX="66.0" layoutY="198.0" prefHeight="18.0" prefWidth="206.0" textAlignment="CENTER" textFill="#ff2200" textOverrun="CENTER_ELLIPSIS" />
+      <ImageView fx:id="btEncerrar" fitHeight="38.0" fitWidth="34.0" layoutX="14.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../images/off.png" />
+         </image>
+      </ImageView>
+	</children>
+</AnchorPane>

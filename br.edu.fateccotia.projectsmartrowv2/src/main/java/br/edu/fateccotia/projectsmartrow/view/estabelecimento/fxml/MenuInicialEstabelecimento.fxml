@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Circle?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="335.0" styleClass="fundoPadrao" stylesheets="@../../style.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.edu.fateccotia.projectsmartrow.view.estabelecimento.controllersviews.MenuInicialEstabelecimentoViewController">
+   <children>
+      <Label layoutX="36.0" layoutY="453.0" prefHeight="75.0" prefWidth="106.0" text="Mesas em Atendimento" wrapText="true">
+         <font>
+            <Font name="Roboto Medium" size="18.0" />
+         </font>
+      </Label>
+      <Label alignment="CENTER" layoutX="31.0" layoutY="421.0" prefHeight="24.0" prefWidth="66.0" text="Configurações" textAlignment="CENTER" wrapText="true">
+         <font>
+            <Font name="Roboto Medium" size="10.0" />
+         </font>
+      </Label>
+      <Label alignment="CENTER" layoutX="137.0" layoutY="421.0" prefHeight="24.0" prefWidth="66.0" text="Promoções" textAlignment="CENTER" wrapText="true">
+         <font>
+            <Font name="Roboto Medium" size="10.0" />
+         </font>
+      </Label>
+      <ImageView fitHeight="53.0" fitWidth="60.0" layoutX="143.0" layoutY="371.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../images/promocao.png" />
+         </image>
+      </ImageView>
+      <Label alignment="CENTER" layoutX="41.0" layoutY="240.0" prefHeight="24.0" prefWidth="48.0" text="Pratos" textAlignment="CENTER" wrapText="true">
+         <font>
+            <Font name="Roboto Medium" size="12.0" />
+         </font>
+      </Label>
+      <ImageView fitHeight="48.0" fitWidth="66.0" layoutX="31.0" layoutY="195.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../images/pratos.png" />
+         </image>
+      </ImageView>
+      <Label layoutX="39.0" layoutY="97.0" prefHeight="75.0" prefWidth="106.0" text="Relatório de Vendas" wrapText="true">
+         <font>
+            <Font name="Roboto Medium" size="18.0" />
+         </font>
+      </Label>
+      <ImageView fitHeight="53.0" fitWidth="48.0" layoutX="40.0" layoutY="373.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../images/configuracoes.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="60.0" fitWidth="77.0" layoutX="243.0" layoutY="461.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../images/dollar.png" />
+         </image>
+      </ImageView>
+      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="234.0" layoutY="294.0" prefHeight="46.0" prefWidth="77.0" text="Pedidos Recebidos" textAlignment="CENTER" textOverrun="CENTER_ELLIPSIS" wrapText="true">
+         <font>
+            <Font name="Roboto Medium" size="14.0" />
+         </font>
+      </Label>
+      <ImageView fitHeight="75.0" fitWidth="66.0" layoutX="240.0" layoutY="355.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../images/notificacao.png" />
+         </image>
+      </ImageView>
+      <Label alignment="CENTER" layoutX="144.0" layoutY="240.0" prefHeight="24.0" prefWidth="48.0" text="Bebidas" textAlignment="CENTER" wrapText="true">
+         <font>
+            <Font name="Roboto Medium" size="12.0" />
+         </font>
+      </Label>
+      <Label alignment="CENTER" layoutX="249.0" layoutY="240.0" prefHeight="24.0" prefWidth="48.0" text="Mesas" textAlignment="CENTER" wrapText="true">
+         <font>
+            <Font name="Roboto Medium" size="12.0" />
+         </font>
+      </Label>
+      <Label layoutX="36.0" layoutY="280.0" prefHeight="75.0" prefWidth="106.0" text="Atualizar Cadastro" wrapText="true">
+         <font>
+            <Font name="Roboto Medium" size="18.0" />
+         </font>
+      </Label>
+      <ImageView fitHeight="54.0" fitWidth="54.0" layoutX="143.0" layoutY="291.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../images/atualizar.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="60.0" fitWidth="54.0" layoutX="246.0" layoutY="190.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../images/mesa.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="52.0" fitWidth="34.0" layoutX="151.0" layoutY="194.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../images/bebidas.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="114.0" fitWidth="100.0" layoutX="218.0" layoutY="88.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../images/relatorio.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="btnEncerrar" accessibleRole="BUTTON" fitHeight="38.0" fitWidth="34.0" layoutX="153.0" layoutY="552.0" pickOnBounds="true" preserveRatio="true" styleClass="botoesNavegacao">
+         <image>
+            <Image url="@../../images/off.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="btnChat" accessibleRole="BUTTON" fitHeight="38.0" fitWidth="34.0" layoutX="273.0" layoutY="552.0" pickOnBounds="true" preserveRatio="true" styleClass="botoesNavegacao">
+         <image>
+            <Image url="@../../images/chat.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="btnVoltar" accessibleRole="BUTTON" fitHeight="38.0" fitWidth="34.0" layoutX="34.0" layoutY="552.0" pickOnBounds="true" preserveRatio="true" styleClass="botoesNavegacao">
+         <image>
+            <Image url="@../../images/voltar.png" />
+         </image>
+      </ImageView>
+      <Label fx:id="labelDadosEstabelecimento" layoutX="88.0" layoutY="40.0" prefHeight="45.0" prefWidth="219.0">
+         <font>
+            <Font name="Roboto Medium" size="10.0" />
+         </font>
+      </Label>
+      <Label fx:id="labelEstabelecimento" layoutX="88.0" layoutY="14.0" prefHeight="24.0" prefWidth="219.0">
+         <font>
+            <Font name="Roboto Medium" size="14.0" />
+         </font>
+      </Label>
+      <Button fx:id="btnRelatorioVendas" layoutX="23.0" layoutY="97.0" mnemonicParsing="false" prefHeight="75.0" prefWidth="287.0" styleClass="botaoEstabelecimento" stylesheets="@../../style.css" />
+      <Button fx:id="btnPratos" layoutX="24.0" layoutY="188.0" mnemonicParsing="false" prefHeight="75.0" prefWidth="77.0" styleClass="botaoEstabelecimento" stylesheets="@../../style.css" />
+      <Button fx:id="btnBebidas" layoutX="132.0" layoutY="188.0" mnemonicParsing="false" prefHeight="75.0" prefWidth="77.0" styleClass="botaoEstabelecimento" stylesheets="@../../style.css" />
+      <Button fx:id="btnMesas" layoutX="235.0" layoutY="188.0" mnemonicParsing="false" prefHeight="75.0" prefWidth="77.0" styleClass="botaoEstabelecimento" stylesheets="@../../style.css" />
+      <Button fx:id="btnConfiguracoes" layoutX="27.0" layoutY="368.0" mnemonicParsing="false" prefHeight="75.0" prefWidth="77.0" styleClass="botaoEstabelecimento" stylesheets="@../../style.css" />
+      <Button fx:id="btnPromocoes" layoutX="132.0" layoutY="368.0" mnemonicParsing="false" prefHeight="75.0" prefWidth="77.0" styleClass="botaoEstabelecimento" stylesheets="@../../style.css" />
+      <Button fx:id="btnAtualizarCadastro" layoutX="24.0" layoutY="280.0" mnemonicParsing="false" prefHeight="75.0" prefWidth="183.0" styleClass="botaoEstabelecimento" stylesheets="@../../style.css" />
+      <Button fx:id="btnPedidosRecebidos" layoutX="235.0" layoutY="280.0" mnemonicParsing="false" prefHeight="164.0" prefWidth="77.0" styleClass="botaoEstabelecimento" stylesheets="@../../style.css" />
+      <Button fx:id="btnMesasAtendimento" layoutX="24.0" layoutY="454.0" mnemonicParsing="false" prefHeight="75.0" prefWidth="287.0" styleClass="botaoEstabelecimento" stylesheets="@../../style.css" />
+      <Circle fill="#1f93ff0f" layoutX="51.0" layoutY="47.0" opacity="0.47" radius="33.0" smooth="false" stroke="#111212d5" strokeWidth="4.0" styleClass="botaoEstabelecimento" />
+      <ImageView fitHeight="88.0" fitWidth="60.0" layoutX="21.0" layoutY="17.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../images/imgvazia.png" />
+         </image>
+      </ImageView>
+     
+   </children>
+</AnchorPane>

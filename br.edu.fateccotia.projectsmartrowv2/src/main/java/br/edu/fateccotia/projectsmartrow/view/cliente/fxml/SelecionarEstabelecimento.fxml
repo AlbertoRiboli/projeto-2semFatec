@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Circle?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="335.0" styleClass="fundoPadrao" stylesheets="@../../style.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.edu.fateccotia.projectsmartrow.view.cliente.controllersviews.SelecionarEstabelecimentoViewController">
+   <children>
+      <ImageView fx:id="btnEncerrar" accessibleRole="BUTTON" fitHeight="38.0" fitWidth="34.0" layoutX="153.0" layoutY="552.0" pickOnBounds="true" preserveRatio="true" styleClass="botoesNavegacao">
+         <image>
+            <Image url="@../../images/off.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="btnChat" accessibleRole="BUTTON" fitHeight="38.0" fitWidth="34.0" layoutX="273.0" layoutY="552.0" pickOnBounds="true" preserveRatio="true" styleClass="botoesNavegacao">
+         <image>
+            <Image url="@../../images/chat.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="btnVoltar" accessibleRole="BUTTON" fitHeight="38.0" fitWidth="34.0" layoutX="34.0" layoutY="552.0" pickOnBounds="true" preserveRatio="true" styleClass="botoesNavegacao">
+         <image>
+            <Image url="@../../images/voltar.png" />
+         </image>
+      </ImageView>
+      <Label fx:id="labelEstabelecimento" layoutX="140.0" layoutY="116.0" prefHeight="73.0" prefWidth="184.0">
+         <font>
+            <Font name="System Bold" size="10.0" />
+         </font>
+      </Label>
+      <Label fx:id="labelBemVindo" layoutX="93.0" layoutY="14.0" prefHeight="24.0" prefWidth="219.0" text="Olá! Seja bem vindo,">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
+      </Label>
+      <Circle fill="#1f93ff0f" layoutX="51.0" layoutY="47.0" opacity="0.47" radius="33.0" smooth="false" stroke="#111212d5" strokeWidth="4.0" styleClass="botaoEstabelecimento" />
+      <ImageView fitHeight="88.0" fitWidth="60.0" layoutX="21.0" layoutY="17.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../images/imgvazia.png" />
+         </image>
+      </ImageView>
+      <Label layoutX="18.0" layoutY="84.0" prefHeight="24.0" prefWidth="190.0" text="Você Selecionou:" wrapText="true" />
+      <Button fx:id="btnCheckin" layoutX="187.0" layoutY="494.0" mnemonicParsing="false" prefHeight="47.0" prefWidth="106.0" styleClass="btnBuscar" stylesheets="@../../style.css" text="Fazer Check-In" />
+      <Label layoutX="30.0" layoutY="226.0" prefHeight="75.0" prefWidth="106.0" text="Visualizar Pratos" wrapText="true">
+         <font>
+            <Font name="Roboto Medium" size="18.0" />
+         </font>
+      </Label>
+      <ImageView fitHeight="98.0" fitWidth="86.0" layoutX="226.0" layoutY="234.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../images/pratos.png" />
+         </image>
+      </ImageView>
+      <Label layoutX="30.0" layoutY="312.0" prefHeight="75.0" prefWidth="106.0" text="Visualizar Bebidas" wrapText="true">
+         <font>
+            <Font name="Roboto Medium" size="18.0" />
+         </font>
+      </Label>
+      <ImageView fitHeight="53.0" fitWidth="85.0" layoutX="253.0" layoutY="323.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../images/bebidas.png" />
+         </image>
+      </ImageView>
+      <Label fx:id="labelCliente" layoutX="93.0" layoutY="38.0" prefHeight="24.0" prefWidth="219.0">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
+      </Label>
+      <Label fx:id="labelBemVindo2" layoutX="18.0" layoutY="202.0" prefHeight="24.0" prefWidth="219.0" text="Cardapio">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
+      </Label>
+      <Button fx:id="btnRetornar" layoutX="40.0" layoutY="494.0" mnemonicParsing="false" prefHeight="47.0" prefWidth="106.0" styleClass="btnBuscar" stylesheets="@../../style.css" text="Retornar ao Menu" textAlignment="CENTER" wrapText="true" />
+      <Label layoutX="30.0" layoutY="398.0" prefHeight="75.0" prefWidth="106.0" text="Visualizar Mesas" wrapText="true">
+         <font>
+            <Font name="Roboto Medium" size="18.0" />
+         </font>
+      </Label>
+      <ImageView fitHeight="53.0" fitWidth="85.0" layoutX="247.0" layoutY="409.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../images/mesa.png" />
+         </image>
+      </ImageView>
+      <Button fx:id="btnVisualizarPratos" layoutX="18.0" layoutY="226.0" mnemonicParsing="false" prefHeight="75.0" prefWidth="301.0" styleClass="botaoEstabelecimento" stylesheets="@../../style.css" />
+      <Button fx:id="btnViualizarBebidas" layoutX="18.0" layoutY="312.0" mnemonicParsing="false" prefHeight="75.0" prefWidth="301.0" styleClass="botaoEstabelecimento" stylesheets="@../../style.css" />
+      <ImageView fitHeight="111.0" fitWidth="117.0" layoutX="18.0" layoutY="116.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../images/food.jpg" />
+         </image>
+      </ImageView>
+      <Button fx:id="btnVisualizarMesas" layoutX="18.0" layoutY="398.0" mnemonicParsing="false" prefHeight="75.0" prefWidth="301.0" styleClass="botaoEstabelecimento" stylesheets="@../../style.css" />
+     
+   </children>
+</AnchorPane>

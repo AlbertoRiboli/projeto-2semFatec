@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="377.0" prefWidth="335.0" styleClass="fundoPadrao" stylesheets="@../../style.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.edu.fateccotia.projectsmartrow.view.cliente.controllersviews.FormaPagamentoDinheiroViewController">
+   <children>
+      <Label fx:id="labelBemVindo" alignment="CENTER" layoutX="65.0" layoutY="14.0" prefHeight="24.0" prefWidth="206.0" text="Forma de Pagamento: Pix">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
+      </Label>
+      <Button fx:id="btnRetornar" layoutX="40.0" layoutY="316.0" mnemonicParsing="false" prefHeight="47.0" prefWidth="106.0" styleClass="btnBuscar" stylesheets="@../../style.css" text="Retornar" textAlignment="CENTER" wrapText="true" />
+      <Label fx:id="labelPedido" alignment="CENTER" contentDisplay="CENTER" layoutX="65.0" layoutY="50.0" prefHeight="24.0" prefWidth="206.0" textAlignment="CENTER">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
+      </Label>
+      <Label fx:id="labelValor" alignment="CENTER" contentDisplay="CENTER" layoutX="65.0" layoutY="119.0" prefHeight="24.0" prefWidth="206.0" textAlignment="CENTER">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
+      </Label>
+      <Button fx:id="btnConfirmar" layoutX="188.0" layoutY="316.0" mnemonicParsing="false" prefHeight="47.0" prefWidth="106.0" styleClass="btnBuscar" stylesheets="@../../style.css" text="Confirmar" textAlignment="CENTER" wrapText="true" />
+      <ImageView fitHeight="111.0" fitWidth="144.0" layoutX="113.0" layoutY="169.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../images/dollar.png" />
+         </image>
+      </ImageView>
+      <Label fx:id="labelPedido1" alignment="CENTER" layoutX="66.0" layoutY="83.0" prefHeight="24.0" prefWidth="206.0" text="Pague ao Caixa o valor:">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
+      </Label>
+     
+   </children>
+</AnchorPane>

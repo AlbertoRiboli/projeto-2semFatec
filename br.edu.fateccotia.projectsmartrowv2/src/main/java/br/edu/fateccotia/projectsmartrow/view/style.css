@@ -1,0 +1,139 @@
+.fundoPadrao {
+	-fx-background-color:
+             linear-gradient(to right bottom, #61D8DE, #E839F6);
+    -fx-background-radius: 35.0;
+    -fx-border-radius: 35.0;
+    -fx-border-color: BLACK;
+    -fx-border-width: 3.0;
+}
+
+.btnEntrar {
+    -fx-background-color:
+            linear-gradient(#A020F0 0.0%, #7B68EE 50.0%, #E6E6FA 100.0%);
+    -fx-background-radius: 30.0;
+    -fx-background-insets: 0.0,1.0,2.0,3.0,0.0;
+    -fx-text-fill: #654b00;
+    -fx-font-weight: bold;
+    -fx-font-size: 14.0px;
+    -fx-padding: 10.0 20.0 10.0 20.0;
+    -fx-border-radius: 50.0;
+   
+}
+.btnEntrar:hover {
+    -fx-background-color:
+           linear-gradient(#A020F0 0.0%, #DCDCDC 50.0%, #E6E6FA 100.0%);
+    -fx-background-radius: 30.0;
+    -fx-background-insets: 0.0,1.0,2.0,3.0,0.0;
+    -fx-text-fill: #654b00;
+    -fx-font-weight: bold;
+    -fx-font-size: 14.0px;
+    -fx-padding: 10.0 20.0 10.0 20.0;
+    -fx-border-radius: 50.0;
+    -fx-border-color: BLACK;
+}
+
+.btnEntrar:pressed {
+    -fx-background-color:
+           linear-gradient(#A020F0 0.0%, #DCDCDC 50.0%, #E6E6FA 100.0%);
+    -fx-background-radius: 30.0;
+    -fx-background-insets: 0.0,1.0,2.0,3.0,0.0;
+    -fx-text-fill: #654b00;
+    -fx-font-weight: bold;
+    -fx-font-size: 14.0px;
+    -fx-padding: 10.0 20.0 10.0 20.0;
+    -fx-border-radius: 50.0;
+    -fx-border-color: BLACK;
+    -fx-scale-x: 1.05;
+	-fx-scale-y: 1.05;
+}
+
+.textFormat{
+	-fx-background-radius: 30.0;
+	-fx-background-color: white;
+	-fx-opacity: 40.0%;
+}
+
+
+.btnBuscar {
+	-fx-background-radius: 30.0;
+	-fx-background-color: linear-gradient(to right bottom, #61D8DE, #E839F6);
+	-fx-opacity: 40.0%;
+	-fx-text-fill: BLACK;
+	-fx-font-weight: bold;
+	-fx-border-color: BLACK;
+	-fx-border-radius: 50.0;
+}
+
+.btnBuscar:pressed{
+	-fx-background-radius: 30.0;
+	-fx-background-color: linear-gradient(to right bottom, #61D8DE, #E839F6);
+	-fx-opacity: 40.0%;
+	-fx-text-fill: BLACK;
+	-fx-font-weight: bold;
+	-fx-border-color: BLACK;
+	-fx-border-radius: 50.0;
+	-fx-scale-x: 1.05;
+	-fx-scale-y: 1.05;
+}
+
+.images {
+	-fx-background-size: cover;
+    -fx-background-position: center center;
+    -fx-shape: 'M 0,0 C 0,0 0,100 100,100 C 100,100 100,0 0,0';
+    -fx-background-radius: 50.0%;
+}
+
+.botaoEstabelecimento{
+	-fx-background-color: rgba(240, 255, 255, 0.2);
+	-fx-border-color: solid;
+	-fx-border-color: GREY;
+}
+
+.botaoEstabelecimento:hover {
+	-fx-border-color: solid;
+	-fx-border-color: BLACK;
+	-fx-background-color: rgba(240, 255, 255, 0.4);
+}
+
+.botaoEstabelecimento:pressed {
+	-fx-background-color: rgba(240, 255, 255, 0.2);
+	-fx-border-color: solid;
+	-fx-border-color: white;
+	-fx-background-color: rgba(240, 255, 255, 0.4);
+}
+
+.botoesNavegacao:hover{
+	-fx-scale-x: 1.10;
+	-fx-scale-y: 1.10;
+}
+
+.botoesNavegacao:pressed{
+	-fx-scale-x: 1.25;
+	-fx-scale-y: 1.25;
+}
+
+.avatar {
+	-fx-background-radius: 50%;
+	-fx-border-radius: 50;
+}
+
+@font-face {
+    -fx-font-family: 'Roboto';
+    src: url('/br/edu/fateccotia/projectsmartrow/view/fonts/roboto/Roboto-Regular.ttf'); 
+}
+
+.formattext{
+	-fx-font-family: 'Roboto';
+	-fx-font-size: 14px;
+}
+
+
+
+
+
+
+
+
+
+
+

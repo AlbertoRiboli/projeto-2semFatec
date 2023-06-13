@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="335.0" styleClass="fundoPadrao" stylesheets="@../../style.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.edu.fateccotia.projectsmartrow.view.estabelecimento.controllersviews.AtualizarCadastroEstabelecimentoViewController">
+   <children>
+      <Button fx:id="btnProximo" layoutX="65.0" layoutY="492.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="212.0" styleClass="btnEntrar" stylesheets="@../style.css" text="Atualizar" />                                                                                   
+      <Label layoutX="58.0" layoutY="38.0" prefHeight="27.0" prefWidth="225.0" text="Preencha os dados abaixo">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font></Label>
+      <TextField fx:id="textNome" alignment="CENTER" layoutX="45.0" layoutY="112.0" prefHeight="25.0" prefWidth="246.0" promptText="nome" style="-fx-border-radius: 30;" styleClass="textFormat" stylesheets="@../style.css" />
+      <Label layoutX="45.0" layoutY="95.0" text="nome">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font></Label>
+      <Label fx:id="labelStatus" alignment="CENTER" contentDisplay="CENTER" layoutX="67.0" layoutY="86.0" prefHeight="18.0" prefWidth="206.0" textAlignment="CENTER" textFill="#ff2200" textOverrun="CENTER_ELLIPSIS" />
+      <TextField fx:id="textCnpj" alignment="CENTER" layoutX="45.0" layoutY="161.0" prefHeight="25.0" prefWidth="246.0" promptText="cnpj" style="-fx-border-radius: 30;" styleClass="textFormat" stylesheets="@../style.css" />
+      <Label layoutX="45.0" layoutY="144.0" text="cnpj">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </Label>
+      <TextField fx:id="textTelefone" alignment="CENTER" layoutX="45.0" layoutY="210.0" prefHeight="25.0" prefWidth="246.0" promptText="telefone" style="-fx-border-radius: 30;" styleClass="textFormat" stylesheets="@../style.css" />
+      <Label layoutX="45.0" layoutY="193.0" text="telefone">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </Label>
+      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="74.0" layoutY="65.0" prefHeight="27.0" prefWidth="193.0" text="Atualizar Cadastro" textAlignment="CENTER">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
+      </Label>
+      <Label layoutX="176.0" layoutY="283.0">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </Label>
+      <ImageView fx:id="btnEncerrar" accessibleRole="BUTTON" fitHeight="38.0" fitWidth="34.0" layoutX="153.0" layoutY="552.0" pickOnBounds="true" preserveRatio="true" styleClass="botoesNavegacao">
+         <image>
+            <Image url="@../../images/off.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="btnChat" accessibleRole="BUTTON" fitHeight="38.0" fitWidth="34.0" layoutX="273.0" layoutY="552.0" pickOnBounds="true" preserveRatio="true" styleClass="botoesNavegacao">
+         <image>
+            <Image url="@../../images/chat.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="btnVoltar" accessibleRole="BUTTON" fitHeight="38.0" fitWidth="34.0" layoutX="34.0" layoutY="552.0" pickOnBounds="true" preserveRatio="true" styleClass="botoesNavegacao">
+         <image>
+            <Image url="@../../images/voltar.png" />
+         </image>
+      </ImageView>
+      <TextField fx:id="textTelefone2" alignment="CENTER" layoutX="45.0" layoutY="258.0" prefHeight="25.0" prefWidth="246.0" promptText="telefone 2" style="-fx-border-radius: 30;" styleClass="textFormat" stylesheets="@../style.css" />
+      <Label layoutX="45.0" layoutY="241.0" text="telefone 2">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </Label>
+      <TextField fx:id="textEmail" alignment="CENTER" layoutX="45.0" layoutY="307.0" prefHeight="25.0" prefWidth="246.0" promptText="email" style="-fx-border-radius: 30;" styleClass="textFormat" stylesheets="@../style.css" />
+      <Label layoutX="45.0" layoutY="290.0" text="email">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </Label>
+      <TextField fx:id="textHorarioFuncionamento" alignment="CENTER" layoutX="45.0" layoutY="356.0" prefHeight="25.0" prefWidth="246.0" promptText="horario de funcionamento" style="-fx-border-radius: 30;" styleClass="textFormat" stylesheets="@../style.css" />
+      <Label layoutX="45.0" layoutY="339.0" text="horario de funcionamento">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </Label>
+      <Button fx:id="btnAlterarImagem" layoutX="45.0" layoutY="413.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="115.0" styleClass="btnBuscar" stylesheets="@../../style.css" text="Alterar Imagem" />
+      <Button fx:id="btnAlterarSenha" layoutX="176.0" layoutY="413.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="115.0" styleClass="btnBuscar" stylesheets="@../../style.css" text="Alterar Senha" />
+   </children>
+</AnchorPane>

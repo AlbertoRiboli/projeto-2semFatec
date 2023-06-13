@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="377.0" prefWidth="335.0" styleClass="fundoPadrao" stylesheets="@../../style.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.edu.fateccotia.projectsmartrow.view.cliente.controllersviews.FormaPagamentoPedidoViewController">
+   <children>
+      <Label fx:id="labelBemVindo" layoutX="65.0" layoutY="14.0" prefHeight="24.0" prefWidth="206.0" text="Escolha a forma de Pagamento">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
+      </Label>
+      <Button fx:id="btnRetornar" layoutX="115.0" layoutY="310.0" mnemonicParsing="false" prefHeight="47.0" prefWidth="106.0" styleClass="btnBuscar" stylesheets="@../../style.css" text="Retornar" textAlignment="CENTER" wrapText="true" />
+      <Label fx:id="labelPedido" alignment="CENTER" contentDisplay="CENTER" layoutX="65.0" layoutY="50.0" prefHeight="24.0" prefWidth="206.0" textAlignment="CENTER" textOverrun="CENTER_WORD_ELLIPSIS">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
+      </Label>
+      <Label fx:id="labelValor" alignment="CENTER" contentDisplay="CENTER" layoutX="65.0" layoutY="74.0" prefHeight="24.0" prefWidth="206.0" textAlignment="CENTER">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
+      </Label>
+      <Button fx:id="btnCartao" layoutX="65.0" layoutY="112.0" mnemonicParsing="false" prefHeight="39.0" prefWidth="206.0" styleClass="btnBuscar" stylesheets="@../../style.css" text="Cartão" textAlignment="CENTER" wrapText="true">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </Button>
+      <Button fx:id="btnPix" layoutX="65.0" layoutY="169.0" mnemonicParsing="false" prefHeight="39.0" prefWidth="206.0" styleClass="btnBuscar" stylesheets="@../../style.css" text="Pix" textAlignment="CENTER" wrapText="true">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </Button>
+      <Button fx:id="btnDinheiro" layoutX="65.0" layoutY="224.0" mnemonicParsing="false" prefHeight="39.0" prefWidth="206.0" styleClass="btnBuscar" stylesheets="@../../style.css" text="Dinheiro (Pagar no Caixa)" textAlignment="CENTER" wrapText="true">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </Button>
+     
+   </children>
+</AnchorPane>
