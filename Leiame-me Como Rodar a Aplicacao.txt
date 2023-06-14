@@ -1,10 +1,11 @@
-Essa primeira versão do Smarthub, Focamos no cadastro do Estabelecimento e Cliente.
-Nesse primeiro momento, A aplicação apresenta um menu principal onde ramifica para
-as opções pertinentes. Na opção estabelecimento,temos um CRUD completo armazenando dentro
-de um banco de dados integrado h2, dentro do codigo existem comentários explicando cada
-função e forma de conexão. Na opção Usuario, temos as opções pertinentes a usuarios e elas armazenam em listas e vetores dentro das classes DAO.
-Cada Package se diz respeito a uma camada ou setor da aplicação.
-A aplicação deve rodar a partir do arquivo Principal.java localizado no Package application,
-e através dele podemos acessar toda a aplicação.
-Lembrando que essa é a versão inicial em desenvolvimento, tentamos focar um CRUD no setor 
-explorado para essa primeira entrega. 
+Essa é a primeira versão com interface gráfica do SmartRow. Ela traz a comunicação entre um backend desenvolvido em estrutura MVC, utilizando Springboot e maven para gerenciamento das dependencias. O backend troca requests e responses através de API interna. O front desenvolvido em JAVAFX faz as requests de acordo com as solicitações do usuário e retorna as reponses. A estrutura do projeto se divide entre estabelecimento e clientes. é possível cadastrar e logar de forma independente. O estabelecimento é capaz de: Atualizar cadastro, alterar senha, cadastrar pratos, bebidas e mesas. O cliente é capaz de, efetuar checkin em um estabelecimento, analisar o cardapio de um estabelecimento de escolha, efetuar pagamentos em pix, cartao ou dinheiro (de forma ilusória).
+
+Diferenciais:
+# O projeto encripta a senha ao salvar em banco de dados.
+# A aplicação é capaz de rodar em nuvem, basta alterar o endereço do servidor
+# O aplicativo gera um qrcode a cada vez que uma mesa é criada, é armazenado em nuvem em servidor S3 da Amazon
+# Ao cadastrar, o usuário recebe um email de validação no email informado.
+
+
+Para rodar a aplicação, basta fazer o download e importar o projeto no eclipse. Para iniciar rode a classe principal: ProjectsmartrowApplication.java
+Para melhor explicação, gravarei um video explicativo, basta seguir no link:

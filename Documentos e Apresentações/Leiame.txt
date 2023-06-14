@@ -1,0 +1,2 @@
+Professor!!! Boa Noiteeee!!
+Estou enviando o link do repositório, um link com vídeo de aprensentação do projeto, e um arquivo da documentação que apresenta as funcionalidades do projeto. Acabou ficando um pouco mais complexo do que solicitou, acabamos deixando um só projeto sendo que para aprasentação em Téc de programação, montamos com o frontend em JavaFx. Fizemos todos os tratamentos e validações conforme ensinou em sua matéria, espero que funcione na sua frente porque estou testando faz uma semana kkkkk qualquer dúvida por favor avise. Abraço!
