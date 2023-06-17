@@ -3,9 +3,13 @@ Essa é a primeira versão com interface gráfica do SmartRow. Ela traz a comuni
 Diferenciais:
 # O projeto encripta a senha ao salvar em banco de dados.
 # A aplicação é capaz de rodar em nuvem, basta alterar o endereço do servidor
-# O aplicativo gera um qrcode a cada vez que uma mesa é criada, é armazenado em nuvem em servidor S3 da Amazon
+# O aplicativo gera um qrcode a cada vez que uma mesa é criada, é armazenado em nuvem 
 # Ao cadastrar, o usuário recebe um email de validação no email informado.
 
 
 Para rodar a aplicação, basta fazer o download e importar o projeto no eclipse. Para iniciar rode a classe principal: ProjectsmartrowApplication.java
 Para melhor explicação, gravarei um video explicativo, basta seguir no link:
+Obs: (Temos dois vídeos gravados, o mais antigo seria a versão que pausamos devido ao prazo, porém ainda conseguimos fazer mais algumas implementações, então segue o video mais atualizado que engloba requisitos de outras matérias porém apresenta o aplicativo de forma mais completa! Abraço!)
+
+https://www.youtube.com/watch?v=liLB6VLk4VY&t=24s
+

@@ -6,7 +6,7 @@ import org.springframework.stereotype.Service;
 public class ServidorService {
 	
 	private static String enderecoServidorWebService = "http://localhost:8080/";
-//	private static String enderecoServidorWebService = "http://ec2-18-228-18-23.sa-east-1.compute.amazonaws.com:8080/";
+//	private static String enderecoServidorWebService = "http://172.190.33.122:8080/";
 	private String email = "richard.silva46fatec@gmail.com";
 	private String pass = "rjfyqhrwbpzpzpwy";
 	

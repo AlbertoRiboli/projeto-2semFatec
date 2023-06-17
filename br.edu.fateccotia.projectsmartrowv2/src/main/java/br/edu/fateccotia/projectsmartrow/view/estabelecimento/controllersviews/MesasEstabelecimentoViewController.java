@@ -12,16 +12,20 @@ import br.edu.fateccotia.projectsmartrow.view.estabelecimento.screens.AtualizarM
 import br.edu.fateccotia.projectsmartrow.view.estabelecimento.screens.CadastrarMesasScreen;
 import br.edu.fateccotia.projectsmartrow.view.estabelecimento.screens.MenuInicialEstabelecimentoScreen;
 import br.edu.fateccotia.projectsmartrow.view.estabelecimento.screens.MesasEstabelecimentoScreen;
+import br.edu.fateccotia.projectsmartrow.view.estabelecimento.screens.QrCodeScreen;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
+import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
 
 public class MesasEstabelecimentoViewController implements Initializable {
@@ -151,14 +155,31 @@ public class MesasEstabelecimentoViewController implements Initializable {
 		btnChat.setOnMouseClicked(event -> {
 			ErroJavafx.funcaoNaoImplementada();
 		});
-		
+
 		btnGerarQr.setOnMouseClicked(event -> {
-			ErroJavafx.funcaoNaoImplementada();
+			Mesas mesa = listMesas.getSelectionModel().getSelectedItem();
+			if (mesa != null) {
+				QrCodeScreen.setMesa(mesa);
+				Image image = Requests.GETImage(mesa.getNomeArquivoQr());
+				if (image != null) {
+					QrCodeScreen qrcode = new QrCodeScreen();
+					try {
+						qrcode.start(new Stage());
+					} catch (Exception e) {
+						e.getStackTrace();
+					}
+				}
+				else {
+					ErroJavafx.error("QRCodeInválido", "O QrCode requisitado é inválido ou não existe");
+				}
+			} else {
+				ErroJavafx.error("Item não selecionado", "'Para gerar um qr code, antes deve selecionar uma mesa!");
+			}
+
 		});
 
 	}
-	
-	
+
 	public void funcaoNaoImplementada() {
 		Alert alert = new Alert(AlertType.INFORMATION);
 		alert.setHeaderText("Função Não Implementada");

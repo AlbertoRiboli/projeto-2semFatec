@@ -1,11 +1,16 @@
 package br.edu.fateccotia.projectsmartrow.controllers;
 
+import java.io.File;
 import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -96,7 +101,7 @@ public class MesasController {
 		mesa.setNomeArquivoQr(nomeArquivo);
 		qrCodeService.geradorQrEmArquivo(qrCodeService.geradorInfoQr(mesa, estabelecimento), nomeArquivo);
 		mesa.setEnderecoQr(qrCodeService.geradorEnderecoQr(nomeArquivo));
-		awsS3.enviarArquivo(mesa.getEnderecoQr(), nomeArquivo);
+//		awsS3.enviarArquivo(mesa.getEnderecoQr(), nomeArquivo);
 		atualizarMesas(mesa.getIDMesa(), mesa);
 		estabelecimento.setAddMesas(mesa);
 		estcont.atualizarEstabelecimento(id, estabelecimento);
@@ -113,14 +118,31 @@ public class MesasController {
 		mesas = est1.getMesas();
 		return ResponseEntity.ok().body(mesas);
 	}
-	
+
 	@GetMapping(value = "/download/{id}")
-	public ResponseEntity<?> downloadQrCode(@PathVariable Integer id){
+	public ResponseEntity<?> downloadQrCode(@PathVariable Integer id) {
 		Mesas mesa = mesasService.findById(id);
-		if(mesa == null) {
-			return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Não foi localizada nenhuma mesa com o id: [" + id + "]");
+		if (mesa == null) {
+			return ResponseEntity.status(HttpStatus.NOT_FOUND)
+					.body("Não foi localizada nenhuma mesa com o id: [" + id + "]");
 		}
 		awsS3.receberArquivo(mesa);
 		return ResponseEntity.status(HttpStatus.ACCEPTED).body("QRCODE disponível na pasta " + mesa.getEnderecoQr());
-			}
+	}
+
+	@GetMapping(value = "/gerarqrfront/{nomeImagem}", produces = MediaType.IMAGE_PNG_VALUE)
+	public ResponseEntity<?> gerarQrCodeFront(@PathVariable String nomeImagem) throws IOException {
+		String diretorioImagens = "data/temp/";
+		String caminhoImagem = diretorioImagens + nomeImagem;
+		File validarArquivo = new File(caminhoImagem);
+		if (validarArquivo.exists()) {
+
+			Path imagePath = Paths.get(caminhoImagem);
+			byte[] image = Files.readAllBytes(imagePath);
+			return ResponseEntity.ok().body(image);
+		} else {
+			
+			return ResponseEntity.status(HttpStatus.NOT_FOUND).body(null);
+		}
+	}
 }

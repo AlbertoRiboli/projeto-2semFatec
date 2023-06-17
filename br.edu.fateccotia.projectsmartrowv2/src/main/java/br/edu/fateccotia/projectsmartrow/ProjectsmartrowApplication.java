@@ -16,7 +16,6 @@ public class ProjectsmartrowApplication {
 		SpringApplication.run(ProjectsmartrowApplication.class, args);
 		
 		Application.launch(InicialJavafx.class, args);
-//		Application.launch(MenuInicialEstabelecimentoScreen.class, args);
 		
 	}
 	

@@ -2,6 +2,7 @@ package br.edu.fateccotia.projectsmartrow.util;
 
 import java.io.BufferedReader;
 import java.io.IOException;
+import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.OutputStream;
 import java.net.HttpURLConnection;
@@ -18,6 +19,7 @@ import br.edu.fateccotia.projectsmartrow.model.Estabelecimento;
 import br.edu.fateccotia.projectsmartrow.model.Mesas;
 import br.edu.fateccotia.projectsmartrow.model.Pratos;
 import br.edu.fateccotia.projectsmartrow.services.ServidorService;
+import javafx.scene.image.Image;
 
 public class Requests {
 
@@ -89,7 +91,6 @@ public class Requests {
 			HttpURLConnection conn = (HttpURLConnection) request.openConnection();
 			conn.setRequestMethod("GET");
 
-		
 			BufferedReader br = new BufferedReader(new InputStreamReader(conn.getInputStream()));
 			StringBuilder sb = new StringBuilder();
 			String line;
@@ -322,7 +323,7 @@ public class Requests {
 			return status.toString();
 		}
 	}
-	
+
 	public static String POSTPedido(String req) {
 		String enderecoRequest = endereco + req;
 
@@ -350,7 +351,7 @@ public class Requests {
 			return status.toString();
 		}
 	}
-	
+
 	public static String GETPedido(String req) {
 		String enderecoRequest = endereco + req;
 
@@ -359,7 +360,7 @@ public class Requests {
 			URL request = new URL(enderecoRequest);
 			HttpURLConnection conn = (HttpURLConnection) request.openConnection();
 			conn.setRequestMethod("GET");
-			
+
 			status = conn.getResponseCode();
 			BufferedReader br = new BufferedReader(new InputStreamReader(conn.getInputStream()));
 			StringBuilder sb = new StringBuilder();
@@ -377,5 +378,30 @@ public class Requests {
 		}
 	}
 
+	public static Image GETImage(String request) {
+		String enderecoRequest = endereco + "mesas/gerarqrfront/" + request;
+		System.out.println("ENDERECO REQUEST QRCODE >>>>>>>>>>>" + enderecoRequest);
+		try {
+			URL URLrequest = new URL(enderecoRequest);
+			HttpURLConnection conn = (HttpURLConnection) URLrequest.openConnection();
+			conn.setRequestMethod("GET");
+
+			if (conn.getResponseCode() == 200) {
+				InputStream input = conn.getInputStream();
+				Image image = new Image(input);
+
+				return image;
+
+			} else {
+				ErroJavafx.error("Request Error", "Erro ao receber QrCode do Servidor");
+				return null;
+			}
+		
+
+		} catch (IOException e) {
+			ErroJavafx.error("Request Error", "Erro ao receber QrCode do Servidor");
+			return null;
+		}
+	}
 
 }

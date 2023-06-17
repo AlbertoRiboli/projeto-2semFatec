@@ -86,7 +86,8 @@ public class QrCodeService {
 	}
 	
 	public String geradorEnderecoQr(String nomeArquivo) {
-		return "./data/temp/" + nomeArquivo;
+//		return "data/temp/" + nomeArquivo;
+		return "data/temp/" + nomeArquivo;
 	}
 	
 	
