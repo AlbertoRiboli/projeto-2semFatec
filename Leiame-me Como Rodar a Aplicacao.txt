@@ -1,5 +1,7 @@
 Essa é a primeira versão com interface gráfica do SmartRow. Ela traz a comunicação entre um backend desenvolvido em estrutura MVC, utilizando Springboot e maven para gerenciamento das dependencias. O backend troca requests e responses através de API interna. O front desenvolvido em JAVAFX faz as requests de acordo com as solicitações do usuário e retorna as reponses. A estrutura do projeto se divide entre estabelecimento e clientes. é possível cadastrar e logar de forma independente. O estabelecimento é capaz de: Atualizar cadastro, alterar senha, cadastrar pratos, bebidas e mesas. O cliente é capaz de, efetuar checkin em um estabelecimento, analisar o cardapio de um estabelecimento de escolha, efetuar pagamentos em pix, cartao ou dinheiro (de forma ilusória).
 
+OBSERVAÇÃO: Não foi possível compactar o projeto devido ao tamanho, nem o teams aceitava em rar devido ao tamanho, e o git também não aceitava o arquivo devido ao limite do tamanho de arquivos.
+
 Diferenciais:
 # O projeto encripta a senha ao salvar em banco de dados.
 # A aplicação é capaz de rodar em nuvem, basta alterar o endereço do servidor
